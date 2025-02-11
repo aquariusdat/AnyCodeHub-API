@@ -2,14 +2,9 @@
 
 namespace AnyCodeHub.Domain.Entities;
 
-public class Lesson : DomainEntity<Guid>, IBaseAuditEntity
+public class Lecture : DomainEntity<Guid>, IBaseAuditEntity
 {
-    public string Title { get; private set; }
-    public string? Description { get; private set; }
-    public string? VideoUrl { get; private set; }
-    public string? PdfUrl { get; private set; }
-    public Guid LectureId { get; private set; }
-    public double Duration { get; private set; }
+    public string Name { get; private set; }
 
     public DateTime CreatedAt { get; set; }
     public Guid CreatedBy { get; set; }
@@ -18,6 +13,4 @@ public class Lesson : DomainEntity<Guid>, IBaseAuditEntity
     public bool IsDeleted { get; set; }
     public DateTime? DeletedAt { get; set; }
     public Guid? DeletedBy { get; set; }
-}
-{
 }
