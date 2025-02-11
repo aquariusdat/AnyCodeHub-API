@@ -1,0 +1,17 @@
+﻿AnyCodeHub/.vs
+AnyCodeHub/src/AnyCodeHub.API/bin
+AnyCodeHub/src/AnyCodeHub.API/obj
+AnyCodeHub/src/AnyCodeHub.Application/bin
+AnyCodeHub/src/AnyCodeHub.Application/obj
+AnyCodeHub/src/AnyCodeHub.Contract/bin
+AnyCodeHub/src/AnyCodeHub.Domain/bin
+AnyCodeHub/src/AnyCodeHub.Infrastructure/bin
+AnyCodeHub/src/AnyCodeHub.Infrastructure.Auth/bin
+AnyCodeHub/src/AnyCodeHub.Persistence/bin
+AnyCodeHub/src/AnyCodeHub.Presentation/bin
+AnyCodeHub/src/AnyCodeHub.Contract/obj
+AnyCodeHub/src/AnyCodeHub.Domain/obj
+AnyCodeHub/src/AnyCodeHub.Infrastructure/obj
+AnyCodeHub/src/AnyCodeHub.Infrastructure.Auth/obj
+AnyCodeHub/src/AnyCodeHub.Persistence/obj
+AnyCodeHub/src/AnyCodeHub.Presentation/obj
