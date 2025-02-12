@@ -14,6 +14,15 @@ builder.Host.UseSerilog();
 
 builder.Services.AddTransient<ExceptionHandlingMiddleware>();
 
+#region Application
+// Api configurations
+builder.Services.AddControllers().AddApplicationPart(AnyCodeHub.Presentation.AssemblyReference.Assembly);
+
+// Add configurations
+builder.Services.AddMediatRApplication();
+builder.Services.AddAutoMapperApplication();
+#endregion Application
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

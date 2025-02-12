@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Abstractions\" />
-    <Folder Include="Attributes\" />
-    <Folder Include="DependencyInjections\" />
-    <Folder Include="Mappers\" />
     <Folder Include="Services\" />
     <Folder Include="Usecases\V1\Commands\" />
     <Folder Include="Usecases\V1\Queries\" />
@@ -26,6 +22,8 @@
   <ItemGroup>
     <ProjectReference Include="..\AnyCodeHub.Contract\AnyCodeHub.Contract.csproj" />
     <ProjectReference Include="..\AnyCodeHub.Domain\AnyCodeHub.Domain.csproj" />
+    <ProjectReference Include="..\AnyCodeHub.Infrastructure.Auth\AnyCodeHub.Infrastructure.Auth.csproj" />
+    <ProjectReference Include="..\AnyCodeHub.Infrastructure\AnyCodeHub.Infrastructure.csproj" />
     <ProjectReference Include="..\AnyCodeHub.Persistence\AnyCodeHub.Persistence.csproj" />
   </ItemGroup>
 
