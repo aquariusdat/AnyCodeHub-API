@@ -1,4 +1,7 @@
 using AnyCodeHub.API.Middlewares;
+using AnyCodeHub.Application.DependencyInjections.Extensions;
+using AnyCodeHub.Persistence.DependencyInjections.Extensions;
+using AnyCodeHub.Persistence.DependencyInjections.Options;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -22,6 +25,10 @@ builder.Services.AddControllers().AddApplicationPart(AnyCodeHub.Presentation.Ass
 builder.Services.AddMediatRApplication();
 builder.Services.AddAutoMapperApplication();
 #endregion Application
+
+builder.Services.AddPostgreSql();
+builder.Services.AddInterceptors();
+builder.Services.ConfigurePostgreSqlRetryOptions(builder.Configuration.GetSection(nameof(PostgreSqlRetryOptions)));
 
 var app = builder.Build();
 

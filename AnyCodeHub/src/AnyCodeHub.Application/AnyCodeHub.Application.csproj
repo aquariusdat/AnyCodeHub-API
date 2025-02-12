@@ -23,7 +23,6 @@
     <ProjectReference Include="..\AnyCodeHub.Contract\AnyCodeHub.Contract.csproj" />
     <ProjectReference Include="..\AnyCodeHub.Domain\AnyCodeHub.Domain.csproj" />
     <ProjectReference Include="..\AnyCodeHub.Infrastructure.Auth\AnyCodeHub.Infrastructure.Auth.csproj" />
-    <ProjectReference Include="..\AnyCodeHub.Infrastructure\AnyCodeHub.Infrastructure.csproj" />
     <ProjectReference Include="..\AnyCodeHub.Persistence\AnyCodeHub.Persistence.csproj" />
   </ItemGroup>
 
