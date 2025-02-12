@@ -10,4 +10,17 @@
     <Folder Include="Controllers\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Serilog.AspNetCore" Version="9.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AnyCodeHub.Application\AnyCodeHub.Application.csproj" />
+    <ProjectReference Include="..\AnyCodeHub.Domain\AnyCodeHub.Domain.csproj" />
+    <ProjectReference Include="..\AnyCodeHub.Infrastructure.Auth\AnyCodeHub.Infrastructure.Auth.csproj" />
+    <ProjectReference Include="..\AnyCodeHub.Infrastructure\AnyCodeHub.Infrastructure.csproj" />
+    <ProjectReference Include="..\AnyCodeHub.Persistence\AnyCodeHub.Persistence.csproj" />
+    <ProjectReference Include="..\AnyCodeHub.Presentation\AnyCodeHub.Presentation.csproj" />
+  </ItemGroup>
+
 </Project>

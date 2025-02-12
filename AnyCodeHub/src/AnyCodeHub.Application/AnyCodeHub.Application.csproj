@@ -10,7 +10,6 @@
     <Folder Include="Abstractions\" />
     <Folder Include="Attributes\" />
     <Folder Include="DependencyInjections\" />
-    <Folder Include="Exceptions\" />
     <Folder Include="Mappers\" />
     <Folder Include="Services\" />
     <Folder Include="Usecases\V1\Commands\" />
