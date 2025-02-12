@@ -2,9 +2,9 @@
 
 namespace AnyCodeHub.Domain.Entities;
 
-public class LectureLesson : DomainEntity<Guid>, IBaseAuditEntity
+public class SectionLesson : DomainEntity<Guid>, IBaseAuditEntity
 {
-    public Guid LectureId { get; private set; }
+    public Guid SectionId { get; private set; }
     public Guid LessonId { get; private set; }
 
     public DateTime CreatedAt { get;set; }

@@ -6,4 +6,21 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Configurations\" />
+    <Folder Include="Constants\" />
+    <Folder Include="DependencyInjections\" />
+    <Folder Include="Interceptors\" />
+    <Folder Include="Repository\" />
+    <Folder Include="Outbox\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.12" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AnyCodeHub.Domain\AnyCodeHub.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

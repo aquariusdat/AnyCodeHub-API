@@ -8,7 +8,11 @@ public class Lesson : DomainEntity<Guid>, IBaseAuditEntity
     public string? Description { get; private set; }
     public string? VideoUrl { get; private set; }
     public string? PdfUrl { get; private set; }
-    public Guid LectureId { get; private set; }
+    public Guid SectionId { get; private set; }
+    /// <summary>
+    /// Tuy hơi thừa nhưng giúp truy vấn nhanh hơn
+    /// </summary>
+    public Guid? CourseId { get; private set; }
     public double Duration { get; private set; }
 
     public DateTime CreatedAt { get; set; }
