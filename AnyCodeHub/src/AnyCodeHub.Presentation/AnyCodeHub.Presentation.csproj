@@ -6,4 +6,18 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" Version="8.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AnyCodeHub.Application\AnyCodeHub.Application.csproj" />
+    <ProjectReference Include="..\AnyCodeHub.Contract\AnyCodeHub.Contract.csproj" />
+    <ProjectReference Include="..\AnyCodeHub.Infrastructure\AnyCodeHub.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers\V2\" />
+  </ItemGroup>
+
 </Project>

@@ -15,8 +15,8 @@
 
   <ItemGroup>
     <Folder Include="Extensions\" />
+    <Folder Include="Services\V1\Course\Validators\" />
     <Folder Include="Services\V2\" />
-    <Folder Include="Services\V1\" />
   </ItemGroup>
 
 </Project>
