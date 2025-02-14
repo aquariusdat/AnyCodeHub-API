@@ -19,6 +19,10 @@ builder.Host.UseSerilog();
     
 builder.Services.AddTransient<ExceptionHandlingMiddleware>();
 
+builder.Services.AddPostgreSql();
+builder.Services.AddInterceptors();
+builder.Services.ConfigurePostgreSqlRetryOptions(builder.Configuration.GetSection(nameof(PostgreSqlRetryOptions)));
+
 #region Application
 // Api configurations
 builder.Services.AddControllers().AddApplicationPart(AnyCodeHub.Presentation.AssemblyReference.Assembly);
