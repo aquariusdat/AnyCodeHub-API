@@ -30,7 +30,7 @@ public static class ServiceCollectionExtensions
             //    .EnableSensitiveDataLogging(true)
             //    .UseLazyLoadingProxies(true)
             //    .UseNpgsql(
-            //        connectionString: configuration.GetConnectionString("AnyCodeBlogConnectionString"),
+            //        connectionString: configuration.GetConnectionString("AnyCodeHubConnectionString"),
             //        npgsqlOptionsAction: optionsBuilder
             //                    => optionsBuilder.ExecutionStrategy(
             //                            dependencies => new NpgsqlRetryingExecutionStrategy(
@@ -47,7 +47,7 @@ public static class ServiceCollectionExtensions
                 .EnableSensitiveDataLogging(true)
                 .UseLazyLoadingProxies(true)
                 .UseNpgsql(
-                    connectionString: configuration.GetConnectionString("AnyCodeBlogConnectionString"),
+                    connectionString: configuration.GetConnectionString("AnyCodeHubConnectionString"),
                     npgsqlOptionsAction: optionsBuilder
                                 => optionsBuilder
                                         //.ExecutionStrategy(

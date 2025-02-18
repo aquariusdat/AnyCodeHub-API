@@ -1,6 +1,7 @@
 using AnyCodeHub.API.DependencyInjection.Extensions;
 using AnyCodeHub.API.Middlewares;
 using AnyCodeHub.Application.DependencyInjections.Extensions;
+using AnyCodeHub.Infrastructure.DependencyInjections.Extensions;
 using AnyCodeHub.Persistence.DependencyInjections.Extensions;
 using AnyCodeHub.Persistence.DependencyInjections.Options;
 using MicroElements.Swashbuckle.FluentValidation.AspNetCore;
@@ -31,6 +32,17 @@ builder.Services.AddControllers().AddApplicationPart(AnyCodeHub.Presentation.Ass
 builder.Services.AddMediatRApplication();
 builder.Services.AddAutoMapperApplication();
 #endregion Application
+
+#region Infrastructure
+builder.Services.AddRedisInfrastructure(builder.Configuration);
+// Add dapper configurations
+//builder.Services.AddDapperInfrastructure();
+// Add Jwt configurations
+builder.Services.AddJwtInfrastructure(builder.Configuration);
+// Add Masstransit Producer
+//builder.Services.AddProducerInfrastructure(builder.Configuration);
+//builder.Services.AddQuartzInfrastructure();
+#endregion Infrastructure
 
 // Add Swagger configrations
 builder.Services
