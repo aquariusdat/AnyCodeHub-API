@@ -1,5 +1,7 @@
+version: "3.9"
+
 services:
-    anycodehubmq:
+    anycodemq:
         container_name: 'rabbitmq'
         image: rabbitmq:3.12-management
         restart: always
@@ -22,7 +24,7 @@ services:
         ports:
         - 5445:5432
         volumes:
-        - E:/MWG:/var/lib/postgresql/data
+        - pgdata:/var/lib/postgresql/data
 
     anycodehubdb.redis:
         image: redis/redis-stack:latest
@@ -45,3 +47,6 @@ services:
 volumes:
   pgdata:
   mongodata:
+# networks:
+#   anycodeapi-network:
+#     driver: bridge    

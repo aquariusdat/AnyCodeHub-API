@@ -5,8 +5,8 @@ VisualStudioVersion = 17.11.35312.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution items", "Solution items", "{20D3D7A9-094F-404C-827B-D92AE79C28CB}"
 	ProjectSection(SolutionItems) = preProject
-		docker-compose.dev.yaml = docker-compose.dev.yaml
-		README.md = README.md
+		Solution items\docker-compose.dev.yaml = Solution items\docker-compose.dev.yaml
+		Solution items\README.md = Solution items\README.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{64671BC5-CC8B-4BA9-856D-B8A68476E9DD}"

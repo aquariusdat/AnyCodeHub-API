@@ -8,8 +8,7 @@ public static class ServiceCollectionExtensions
 {
     public static void AddRedisInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
-        //services.AddStackExchangeRedisCache(options => options.Configuration = $"{configuration.GetSection("RedisConfigurations:Host").Value}:{configuration.GetSection("RedisConfigurations:Port").Value}");
-
+        services.AddStackExchangeRedisCache(options => options.Configuration = $"{configuration.GetSection("RedisConfigurations:Host").Value}:{configuration.GetSection("RedisConfigurations:Port").Value}");
         services.AddTransient<ICachingService, CachingService>();
     }
 

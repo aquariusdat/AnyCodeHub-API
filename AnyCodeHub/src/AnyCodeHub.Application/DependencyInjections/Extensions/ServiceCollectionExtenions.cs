@@ -3,7 +3,6 @@ using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using FluentValidation;
 using Microsoft.Extensions.Configuration;
-using System.Security.Cryptography;
 using AnyCodeHub.Infrastructure.Auth.DependencyInjections.Options;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
@@ -14,11 +13,12 @@ using AnyCodeHub.Infrastructure.Auth.Services;
 using AnyCodeHub.Infrastructure.Auth.Abstractions;
 using Microsoft.AspNetCore.Builder;
 using AnyCodeHub.Application.Mappers;
+using System.Text;
 
 namespace AnyCodeHub.Application.DependencyInjections.Extensions;
 public static class ServiceCollectionExtenions
 {
-    private static readonly string _corsName = "TechRoomCORSName";
+    private static readonly string _corsName = "AnyCodeHubCORSName";
     public static void AddMediatRApplication(this IServiceCollection services)
     {
         services.AddMediatR(cfg =>
@@ -77,11 +77,12 @@ public static class ServiceCollectionExtenions
                                                                                 {
                                                                                     options.SaveToken = true;
                                                                                     //var signingKey = Encoding.UTF8.GetBytes(configuration.GetSection("JwtOptions:SecretKey").Value);
-                                                                                    //var signingKey = Encoding.UTF8.GetBytes(jwtOptions.SecretKey);
-                                                                                    var rsaKey = RSA.Create();
-                                                                                    string privateKey = File.ReadAllText(jwtOptions.PrivateKeyPath);
-                                                                                    rsaKey.FromXmlString(privateKey);
-                                                                                    var rsaSecurityKey = new RsaSecurityKey(rsaKey);
+                                                                                    var signingKey = Encoding.UTF8.GetBytes(jwtOptions.SecretKey);
+
+                                                                                    //var rsaKey = RSA.Create();
+                                                                                    //string privateKey = File.ReadAllText(jwtOptions.PrivateKeyPath);
+                                                                                    //rsaKey.FromXmlString(privateKey);
+                                                                                    //var rsaSecurityKey = new RsaSecurityKey(rsaKey);
 
                                                                                     options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters()
                                                                                     {
@@ -93,8 +94,8 @@ public static class ServiceCollectionExtenions
                                                                                         //ValidAudience = configuration.GetSection("JwtOptions:Audience").Value,
                                                                                         ValidIssuer = jwtOptions.Issuer,
                                                                                         ValidAudience = jwtOptions.Audience,
-                                                                                        //IssuerSigningKey = new SymmetricSecurityKey(signingKey),
-                                                                                        IssuerSigningKey = rsaSecurityKey,
+                                                                                        IssuerSigningKey = new SymmetricSecurityKey(signingKey),
+                                                                                        //IssuerSigningKey = rsaSecurityKey,
                                                                                         ClockSkew = TimeSpan.Zero
                                                                                     };
 

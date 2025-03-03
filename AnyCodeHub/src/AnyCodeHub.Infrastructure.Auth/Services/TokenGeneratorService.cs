@@ -19,10 +19,9 @@ public class TokenGeneratorService : ITokenGeneratorService
     private readonly string _invalidRefreshTokenCache = "INVALID_REFRESHTOKEN";
     private readonly EncryptOptions _encryptOptions;
 
-    public TokenGeneratorService(JwtOptions jwtOptions, UserManager<AppUser> userManager, /*IRepositoryBase<Domain.Entities.Identity.AppUser, Guid> repositoryBase,*/ IMemoryCache memoryCache, EncryptOptions encryptOptions)
+    public TokenGeneratorService(JwtOptions jwtOptions, UserManager<AppUser> userManager, IMemoryCache memoryCache, EncryptOptions encryptOptions)
     {
         _jwtOptions = jwtOptions;
-        //_repositoryBase = repositoryBase;
         _memoryCache = memoryCache;
         _encryptOptions = encryptOptions;
         _userManager = userManager;
@@ -33,22 +32,22 @@ public class TokenGeneratorService : ITokenGeneratorService
         try
         {
             #region Signing without RSA
-            //var keyBytes = Encoding.UTF8.GetBytes(_jwtOptions.SecretKey);
-            //var symmetricKey = new SymmetricSecurityKey(keyBytes);
-            //var signingCredentials = new SigningCredentials(symmetricKey, SecurityAlgorithms.HmacSha256);
+            var keyBytes = Encoding.UTF8.GetBytes(_jwtOptions.SecretKey);
+            var symmetricKey = new SymmetricSecurityKey(keyBytes);
+            var signingCredentials = new SigningCredentials(symmetricKey, SecurityAlgorithms.HmacSha256);
             #endregion
 
             #region Signing with RSA
-            RsaSecurityKey rsaSecurityKey = GetRSAKey();
-            var signingCred = new SigningCredentials(rsaSecurityKey, SecurityAlgorithms.RsaSha256);
+            //RsaSecurityKey rsaSecurityKey = GetRSAKey();
+            //var signingCred = new SigningCredentials(rsaSecurityKey, SecurityAlgorithms.RsaSha256);
             #endregion
 
             DateTime expireTime = DateTime.Now.AddMinutes(_jwtOptions.ExpirationMinutes);
             var token = new JwtSecurityToken(
                     issuer: _jwtOptions.Issuer,
                     audience: _jwtOptions.Audience,
-                    //signingCredentials: signingCredentials, // Signing without RSA
-                    signingCredentials: signingCred,
+                    signingCredentials: signingCredentials, // Signing without RSA
+                                                            //signingCredentials: signingCred,
                     claims: claims,
                     expires: expireTime
                 );
