@@ -13,11 +13,13 @@ namespace AnyCodeHub.Persistence
         }
 
         protected override void OnModelCreating(ModelBuilder builder) => builder.ApplyConfigurationsFromAssembly(Persistence.AssemblyReferences.Assembly);
-        
-        public DbSet<AppUser> AppUsers { get; set; }
-        public DbSet<AppRole> AppRoles { get; set; }
+        public DbSet<AppUser> AppUses { get; set; }
+        public DbSet<Function> Functions { get; set; }
+        public DbSet<ActionInFunction> ActionInFunctions { get; set; }
+        public DbSet<Permission> Permissions { get; set; }
+
         public DbSet<Course> Courses { get; set; }
         public DbSet<Category> Categories { get; set; }
-        
+
     }
 }
