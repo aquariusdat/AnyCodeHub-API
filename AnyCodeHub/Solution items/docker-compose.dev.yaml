@@ -18,9 +18,9 @@ services:
         container_name: 'anycodehubdb'
         restart: always
         environment:
-        - POSTGRES_USER=anycodehubdb
-        - POSTGRES_PASSWORD=anycodehubdb
-        - POSTGRES_DB=anycodehubdb
+        - POSTGRES_USER=anycodehub
+        - POSTGRES_PASSWORD=anycodehub
+        - POSTGRES_DB=anycodehub
         ports:
         - 5445:5432
         volumes:
