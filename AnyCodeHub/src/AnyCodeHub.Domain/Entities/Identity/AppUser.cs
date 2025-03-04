@@ -4,6 +4,10 @@ namespace AnyCodeHub.Domain.Entities.Identity;
 
 public class AppUser : IdentityUser<Guid>
 {
+    public AppUser()
+    {
+
+    }
     public string FirstName { get; set; }
     public string LastName { get; set; }
     public string FullName => $"{FirstName} {LastName}";
