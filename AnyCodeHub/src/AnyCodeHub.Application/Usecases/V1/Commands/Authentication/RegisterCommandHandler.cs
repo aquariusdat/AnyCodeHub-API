@@ -5,6 +5,8 @@ using AnyCodeHub.Domain.Entities.Identity;
 using AnyCodeHub.Domain.Exceptions;
 using AutoMapper;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using static AnyCodeHub.Contract.Services.V1.Authentication.Command;
 
 namespace AnyCodeHub.Application.Usecases.V1.Commands.Authentication;
@@ -13,10 +15,12 @@ public class RegisterCommandHandler : ICommandHandler<RegisterCommand, bool>
 {
     private readonly IMapper _mapper;
     private readonly UserManager<AppUser> _userManager;
-    public RegisterCommandHandler(IMapper mapper, UserManager<AppUser> userManager)
+    private readonly ILogger<RegisterCommandHandler> _logger;
+    public RegisterCommandHandler(IMapper mapper, UserManager<AppUser> userManager, ILogger<RegisterCommandHandler> logger)
     {
         _mapper = mapper;
         _userManager = userManager;
+        _logger = logger;
     }
     public async Task<Result<bool>> Handle(RegisterCommand request, CancellationToken cancellationToken)
     {
@@ -35,6 +39,7 @@ public class RegisterCommandHandler : ICommandHandler<RegisterCommand, bool>
         }
         catch (Exception ex)
         {
+            _logger.LogError($"Error while registering user. \r\n[ex={ex.ToString()}]");
             throw;
         }
     }
