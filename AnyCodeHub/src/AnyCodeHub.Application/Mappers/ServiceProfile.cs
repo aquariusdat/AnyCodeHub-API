@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using AnyCodeHub.Domain.Entities.Identity;
+using AutoMapper;
 
 namespace AnyCodeHub.Application.Mappers;
 
@@ -7,6 +8,7 @@ public class ServiceProfile : Profile
     public ServiceProfile()
     {
         // V1
+        CreateMap<Contract.Services.V1.Authentication.Command.RegisterCommand, AppUser>().ReverseMap();
         //CreateMap<Post, Contract.Services.V1.Post.Response.PostResponse>().ReverseMap();
         //CreateMap<PagedResult<Post>, PagedResult<Contract.Services.V1.Post.Response.PostResponse>>().ReverseMap();
 

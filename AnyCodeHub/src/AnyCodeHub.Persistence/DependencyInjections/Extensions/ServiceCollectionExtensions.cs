@@ -63,13 +63,17 @@ public static class ServiceCollectionExtensions
 
         services.AddIdentityCore<AppUser>()
         .AddRoles<AppRole>()
-        .AddEntityFrameworkStores<ApplicationDbContext>();
+        .AddEntityFrameworkStores<ApplicationDbContext>()
+         .AddTokenProvider<EmailTokenProvider<AppUser>>(TokenOptions.DefaultEmailProvider)
+        .AddTokenProvider<PhoneNumberTokenProvider<AppUser>>(TokenOptions.DefaultPhoneProvider)
+        .AddTokenProvider<AuthenticatorTokenProvider<AppUser>>(TokenOptions.DefaultAuthenticatorProvider);
 
         services.Configure<IdentityOptions>(options =>
         {
             options.Lockout.AllowedForNewUsers = true; // Default true
             options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(2); // Default 5
             options.Lockout.MaxFailedAccessAttempts = 3; // Default 5
+            options.SignIn.RequireConfirmedAccount = true; // verify 
 
             options.Password.RequireDigit = false;
             options.Password.RequireLowercase = false;
