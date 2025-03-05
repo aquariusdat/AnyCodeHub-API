@@ -31,7 +31,7 @@ public static class ServiceCollectionExtenions
         services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationPipelineBehavior<,>));
         services.AddTransient(typeof(IPipelineBehavior<,>), typeof(TransactionPipelineBehavior<,>));
         services.AddValidatorsFromAssembly(AnyCodeHub.Contract.AssemblyReference.Assembly, includeInternalTypes: true);
-
+        services.AddHttpContextAccessor();
     }
 
     public static void AddCorsApplication(this WebApplication app)
