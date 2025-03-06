@@ -6,7 +6,8 @@ using AnyCodeHub.Domain.Entities.Identity;
 using AnyCodeHub.Domain.Exceptions;
 using AutoMapper;
 using Microsoft.AspNetCore.Identity;
-using System;
+using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using System.Text.RegularExpressions;
 using static AnyCodeHub.Contract.Services.V1.Authentication.Command;
 using static AnyCodeHub.Contract.Services.V1.Authentication.Query;
@@ -19,12 +20,14 @@ public class RegisterCommandHandler : ICommandHandler<RegisterCommand, bool>
     private readonly UserManager<AppUser> _userManager;
     private readonly IEmailSenderService _emailSenderService;
     private readonly IUrlHelperService _urlHelperService;
-    public RegisterCommandHandler(IMapper mapper, UserManager<AppUser> userManager, IEmailSenderService emailSenderService, IUrlHelperService urlHelperService)
+    private readonly ILogger<RegisterCommandHandler> _logger;
+    public RegisterCommandHandler(IMapper mapper, UserManager<AppUser> userManager, IEmailSenderService emailSenderService, IUrlHelperService urlHelperService, ILogger<RegisterCommandHandler> logger)
     {
         _mapper = mapper;
         _userManager = userManager;
         _emailSenderService = emailSenderService;
         _urlHelperService = urlHelperService;
+        _logger = logger;
     }
     public async Task<Result<bool>> Handle(RegisterCommand request, CancellationToken cancellationToken)
     {
@@ -45,7 +48,7 @@ public class RegisterCommandHandler : ICommandHandler<RegisterCommand, bool>
             {
                 string tokenVerification = await _userManager.GenerateEmailConfirmationTokenAsync(register);
                 var confirmationLink = _urlHelperService.GenerateMailConfirmationLink(register.Email, tokenVerification);
-                 _emailSenderService.SendAsync(register.Email, "Verify your email to active your AnyCodeHub account.", "", $"""
+                _emailSenderService.SendAsync(register.Email, "Verify your email to active your AnyCodeHub account.", "", $"""
                     <a href="{confirmationLink}">Click here to verify your account</a>
                     """);
             }
@@ -54,6 +57,7 @@ public class RegisterCommandHandler : ICommandHandler<RegisterCommand, bool>
         }
         catch (Exception ex)
         {
+            _logger.LogError($"Error while registering user. \r\n[ex={ex.ToString()}]");
             throw;
         }
     }

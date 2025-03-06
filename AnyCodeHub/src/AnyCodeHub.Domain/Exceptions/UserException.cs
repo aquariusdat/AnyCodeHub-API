@@ -3,7 +3,7 @@ public static class UserException
 {
     public class UserNotFoundException : NotFoundException
     {
-        public UserNotFoundException(string UserName) : base($"Username [{UserName}] was not found.")
+        public UserNotFoundException(string Email) : base($"Email [{Email}] was not found.")
         {
 
         }
@@ -11,7 +11,7 @@ public static class UserException
 
     public class DeactiveUserException : Exception
     {
-        public DeactiveUserException(string UserName) : base($"Username [{UserName}] has been deactive")
+        public DeactiveUserException(string Email) : base($"Email [{Email}] has been deactive")
         {
 
         }
@@ -27,7 +27,7 @@ public static class UserException
 
     public class UserExistsException : Exception
     {
-        public UserExistsException(string UserName) : base($"Username [{UserName}] already exists")
+        public UserExistsException(string Email) : base($"Email [{Email}] already exists")
         {
 
         }
@@ -35,7 +35,7 @@ public static class UserException
 
     public class UserHasBeenDeletedException : Exception
     {
-        public UserHasBeenDeletedException(string UserName) : base($"Username [{UserName}] has been deleted.")
+        public UserHasBeenDeletedException(string Email) : base($"Email [{Email}] has been deleted.")
         {
 
         }
@@ -43,7 +43,7 @@ public static class UserException
 
     public class UserHasBeenLockedException : Exception
     {
-        public UserHasBeenLockedException(string UserName, DateTimeOffset LockoutEnd) : base($"Username [{UserName}] has been locked until {LockoutEnd.ToString($"dd/MM/yyyy HH:mm:sss")}.")
+        public UserHasBeenLockedException(string Email, DateTimeOffset LockoutEnd) : base($"Email [{Email}] has been locked until {LockoutEnd.ToString($"dd/MM/yyyy HH:mm:sss")}.")
         {
 
         }
