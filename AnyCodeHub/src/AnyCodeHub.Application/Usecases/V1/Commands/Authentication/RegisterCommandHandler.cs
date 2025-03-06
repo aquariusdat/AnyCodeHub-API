@@ -40,7 +40,6 @@ public class RegisterCommandHandler : ICommandHandler<RegisterCommand, bool>
             register.IsAdmin = request.PhoneNumber == "0789163351";
             register.PasswordHash = request.Password.HashPasswordWithBCrypt();
             register.UserName = Regex.Match(register.Email, @"^[^@]+").Value;
-            register.IsActive = true;
 
             IdentityResult result = await _userManager.CreateAsync(register);
 

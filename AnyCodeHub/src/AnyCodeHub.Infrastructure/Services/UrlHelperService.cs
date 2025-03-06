@@ -20,6 +20,6 @@ public class UrlHelperService : IUrlHelperService
         var host = request.Host;
         var pathBase = request.PathBase;
 
-        return $"{scheme}://{host}{pathBase}/Account/ConfirmEmail?Email={Email}&Token={HttpUtility.UrlEncode(Token)}";
+        return $"{scheme}://{host}{pathBase}/user/confirm-email?Email={Email}&Token={HttpUtility.UrlEncode(Token)}";
     }
 }

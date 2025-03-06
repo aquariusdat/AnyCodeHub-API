@@ -70,6 +70,11 @@ public static class ServiceCollectionExtensions
         .AddTokenProvider<DataProtectorTokenProvider<AppUser>>(TokenOptions.DefaultProvider)
         ;
 
+        services.Configure<DataProtectionTokenProviderOptions>(options =>
+        {
+            options.TokenLifespan = TimeSpan.FromHours(2);
+        });
+
         services.Configure<IdentityOptions>(options =>
         {
             options.Lockout.AllowedForNewUsers = true; // Default true
