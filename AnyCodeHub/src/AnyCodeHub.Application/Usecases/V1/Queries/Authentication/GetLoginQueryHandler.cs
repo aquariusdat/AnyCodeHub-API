@@ -24,13 +24,14 @@ public class GetLoginQueryHandler : IQueryHandler<Query.Login, Response.Authenti
     private readonly ICachingService _cachingService;
     private static readonly int MAX_ACCESS_FAILED_COUNT = 5;
 
-    public GetLoginQueryHandler(IMapper mapper, UserManager<AppUser> userManager, ITokenGeneratorService tokenGeneratorService, IUserRepository userRepository, ICachingService cachingService)
+    public GetLoginQueryHandler(IMapper mapper, UserManager<AppUser> userManager, ITokenGeneratorService tokenGeneratorService, IUserRepository userRepository, ICachingService cachingService, ILogger<GetLoginQueryHandler> logger)
     {
         _mapper = mapper;
         _userManager = userManager;
         _tokenGeneratorService = tokenGeneratorService;
         _userRepository = userRepository;
         _cachingService = cachingService;
+        _logger = logger;
     }
     public async Task<Result<Response.AuthenticatedResponse>> Handle(Query.Login request, CancellationToken cancellationToken)
     {
@@ -73,6 +74,7 @@ public class GetLoginQueryHandler : IQueryHandler<Query.Login, Response.Authenti
                     FirstName = user.FirstName,
                     LastName = user.LastName,
                     BirthOfDate = user.BirthOfDate,
+                    PhoneNumber = user.PhoneNumber,
                     Email = user.Email,
                 }
             };
