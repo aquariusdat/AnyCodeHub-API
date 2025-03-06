@@ -64,9 +64,11 @@ public static class ServiceCollectionExtensions
         services.AddIdentityCore<AppUser>()
         .AddRoles<AppRole>()
         .AddEntityFrameworkStores<ApplicationDbContext>()
-         .AddTokenProvider<EmailTokenProvider<AppUser>>(TokenOptions.DefaultEmailProvider)
-        .AddTokenProvider<PhoneNumberTokenProvider<AppUser>>(TokenOptions.DefaultPhoneProvider)
-        .AddTokenProvider<AuthenticatorTokenProvider<AppUser>>(TokenOptions.DefaultAuthenticatorProvider);
+        // .AddTokenProvider<EmailTokenProvider<AppUser>>(TokenOptions.DefaultEmailProvider)
+        //.AddTokenProvider<PhoneNumberTokenProvider<AppUser>>(TokenOptions.DefaultPhoneProvider)
+        //.AddTokenProvider<AuthenticatorTokenProvider<AppUser>>(TokenOptions.DefaultAuthenticatorProvider)
+        .AddTokenProvider<DataProtectorTokenProvider<AppUser>>(TokenOptions.DefaultProvider)
+        ;
 
         services.Configure<IdentityOptions>(options =>
         {

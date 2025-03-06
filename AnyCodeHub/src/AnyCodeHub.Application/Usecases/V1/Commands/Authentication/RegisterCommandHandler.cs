@@ -43,7 +43,7 @@ public class RegisterCommandHandler : ICommandHandler<RegisterCommand, bool>
 
             if (result.Succeeded)
             {
-                string tokenVerification = await _userManager.GenerateTwoFactorTokenAsync(register, TokenOptions.DefaultEmailProvider);
+                string tokenVerification = await _userManager.GenerateEmailConfirmationTokenAsync(register);
                 var confirmationLink = _urlHelperService.GenerateMailConfirmationLink(register.Email, tokenVerification);
                  _emailSenderService.SendAsync(register.Email, "Verify your email to active your AnyCodeHub account.", "", $"""
                     <a href="{confirmationLink}">Click here to verify your account</a>
