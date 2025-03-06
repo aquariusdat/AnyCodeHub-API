@@ -19,11 +19,13 @@ public class GetLoginQueryHandler : IQueryHandler<Query.Login, Response.Authenti
         _mapper = mapper;
         _userManager = userManager;
     }
-    public Task<Result<Response.AuthenticatedResponse>> Handle(Query.Login request, CancellationToken cancellationToken)
+    public async Task<Result<Response.AuthenticatedResponse>> Handle(Query.Login request, CancellationToken cancellationToken)
     {
         try
         {
             var user = _userManager.FindByEmailAsync(request.Email) ?? throw new UserException.UserNotFoundException(request.Email);
+            Response.AuthenticatedResponse response = new Response.AuthenticatedResponse();
+            return Result.Success(response);
         }
         catch (Exception ex)
         {

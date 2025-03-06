@@ -49,7 +49,16 @@ public class RegisterCommandHandler : ICommandHandler<RegisterCommand, bool>
                 string tokenVerification = await _userManager.GenerateEmailConfirmationTokenAsync(register);
                 var confirmationLink = _urlHelperService.GenerateMailConfirmationLink(register.Email, tokenVerification);
                 _emailSenderService.SendAsync(register.Email, "Verify your email to active your AnyCodeHub account.", "", $"""
-                    <a href="{confirmationLink}">Click here to verify your account</a>
+                    <div style="">
+                        <div><h3>To verify your email  address <a href="mailto:{register.Email.ToLower()}" target="_blank">{register.Email.ToLower()}</a> visit the following link:</h3></div>
+                        <div><a href="{confirmationLink}">Click here to verify your account</a></div>
+                        <p style=">If you did not request this verification, please ignore this email. If you feel something is wrong, please contact us: web_feedback@anycodehub.com.</p>
+                        <p style="margin-bottom:0;">Please note that this link is only valid for the next 2 hours only. </p>
+                        <p style="margin-top:0;">* Don't forward this email or verification code to anyone.</p>
+                        <p style="margin-bottom:0;">Note - This email is sent automatically and you do not need to reply.</p>
+                        <p style="margin:0;">The AnyCodeHub Team</p>
+                        <p style="margin:0;">www.anycodehub.com</p>
+                    </div>
                     """);
             }
 
