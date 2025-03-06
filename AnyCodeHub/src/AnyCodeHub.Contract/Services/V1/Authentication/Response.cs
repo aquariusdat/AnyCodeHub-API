@@ -8,6 +8,8 @@ public static class Response
         public DateTime AccessTokenExpirationTime { get; set; }
         public string RefreshToken { get; set; }
         public DateTime RefreshTokenExpirationTime { get; set; }
+
+        public UserInformation UserInformation { get; set; }
     }
 
     public class UserInformation

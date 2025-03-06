@@ -78,8 +78,8 @@ public static class ServiceCollectionExtensions
         services.Configure<IdentityOptions>(options =>
         {
             options.Lockout.AllowedForNewUsers = true; // Default true
-            options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(2); // Default 5
-            options.Lockout.MaxFailedAccessAttempts = 3; // Default 5
+            options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5); // Default 5
+            options.Lockout.MaxFailedAccessAttempts = 5; // Default 5
             options.SignIn.RequireConfirmedAccount = true; // verify 
 
             options.Password.RequireDigit = false;
@@ -113,7 +113,7 @@ public static class ServiceCollectionExtensions
 
     public static void AddRepositoryConfigurations(this IServiceCollection services)
     {
-        //services.AddTransient<IUserRepository, UserRepository>();
+        services.AddTransient<IUserRepository, UserRepository>();
     }
 
     public static void AddInterceptors(this IServiceCollection services)
