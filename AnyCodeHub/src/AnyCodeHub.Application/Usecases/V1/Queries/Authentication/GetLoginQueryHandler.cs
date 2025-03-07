@@ -79,6 +79,12 @@ public class GetLoginQueryHandler : IQueryHandler<Query.Login, Response.Authenti
                 }
             };
 
+            await _cachingService.SetAsync($"{Contract.Enumerations.CachingPrefixKey.AuthenticatedResponseByUser}_{request.Email}", response, cancellationToken);
+
+            var lstAuthenticatedResponse = await GetListToken(request.Email);
+            lstAuthenticatedResponse.Add(response);
+            await _cachingService.SetAsync($"{Contract.Enumerations.CachingPrefixKey.TokenHistoryByUser}_{request.Email}", lstAuthenticatedResponse, cancellationToken);
+
             return Result.Success(response);
         }
         catch (Exception ex)
