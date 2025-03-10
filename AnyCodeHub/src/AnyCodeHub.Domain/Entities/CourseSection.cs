@@ -11,31 +11,32 @@ public class CourseSection : AggregateRoot<Guid>, IBaseAuditEntity
     {
     }
 
-    private CourseSection(Guid courseId, Guid lectureId, Guid createdBy)
+    private CourseSection(string name, Guid courseId, Guid sectionId, Guid createdBy)
     {
         Id = Guid.NewGuid();
+        Name = name;
         CourseId = courseId;
-        LectureId = lectureId;
+        SectionId = sectionId;
         CreatedBy = createdBy;
         CreatedAt = DateTime.Now;
     }
 
-    public static CourseSection Create(Guid courseId, Guid lectureId, Guid createdBy)
+    public static CourseSection Create(string name, Guid courseId, Guid sectionId, Guid createdBy)
     {
-        CourseSection courseSection = new CourseSection(courseId, lectureId, createdBy);
-        courseSection.RaiseDomainEvent(new DomainEvent.CourseSectionCreated(Guid.NewGuid(), courseSection.Id, courseId, lectureId, createdBy, DateTime.Now));
+        CourseSection courseSection = new CourseSection(name, courseId, sectionId, createdBy);
+        courseSection.RaiseDomainEvent(new DomainEvent.CourseSectionCreated(Guid.NewGuid(), courseSection.Id, courseId, sectionId, createdBy, DateTime.Now));
         return courseSection;
     }
 
-    public void Update(Guid id, Guid courseId, Guid lectureId, Guid updatedBy)
+    public void Update(Guid id, Guid courseId, Guid sectionId, Guid updatedBy)
     {
         Id = id;
         CourseId = courseId;
-        LectureId = lectureId;
+        SectionId = sectionId;
         UpdatedAt = DateTime.Now;
         UpdatedBy = updatedBy;
 
-        RaiseDomainEvent(new DomainEvent.CourseSectionUpdated(Guid.NewGuid(), Id, CourseId, LectureId, UpdatedBy, UpdatedAt));
+        RaiseDomainEvent(new DomainEvent.CourseSectionUpdated(Guid.NewGuid(), Id, CourseId, SectionId, UpdatedBy, UpdatedAt));
     }
 
     public void Delete(Guid deletedBy)
@@ -48,7 +49,8 @@ public class CourseSection : AggregateRoot<Guid>, IBaseAuditEntity
     }
 
     public Guid CourseId { get; private set; }
-    public Guid LectureId { get; private set; }
+    public Guid SectionId { get; private set; }
+    public string Name { get; private set; }
 
     public DateTime CreatedAt { get; set; }
     public Guid CreatedBy { get; set; }

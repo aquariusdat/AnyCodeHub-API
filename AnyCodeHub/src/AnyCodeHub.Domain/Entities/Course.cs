@@ -3,6 +3,7 @@ using AnyCodeHub.Contract.Enumerations;
 using AnyCodeHub.Contract.Services.V1.Course;
 using AnyCodeHub.Domain.Abstractions.Aggregates;
 using AnyCodeHub.Domain.Abstractions.Entities;
+using AnyCodeHub.Domain.Entities.Identity;
 
 namespace AnyCodeHub.Domain.Entities;
 
@@ -10,6 +11,17 @@ public class Course : AggregateRoot<Guid>, IBaseAuditEntity
 {
     private Course()
     {
+        // Initialize collections to prevent null reference exceptions
+        Sections = new HashSet<Section>();
+        UserCourses = new HashSet<UserCourse>();
+        Ratings = new HashSet<Rating>();
+        CourseCategories = new HashSet<CourseCategory>();
+        CourseComments = new HashSet<CourseComment>();
+        CourseTechnologies = new HashSet<CourseTechnology>();
+        CourseBenefits = new HashSet<CourseBenefit>();
+        CourseRequirements = new HashSet<CourseRequirement>();
+        CourseSections = new HashSet<CourseSection>();
+        CourseQAs = new HashSet<CourseQA>();
     }
 
     private Course(string name, string? description, decimal price, decimal? salePrice, string? imageUrl, string? videoUrl, string? slug, string status, Guid authorId, CourseLevel level, int totalViews, double totalDuration, double rating, Guid createdBy)
@@ -30,6 +42,18 @@ public class Course : AggregateRoot<Guid>, IBaseAuditEntity
         Rating = rating;
         CreatedBy = createdBy;
         CreatedAt = DateTime.Now;
+
+        // Initialize collections to prevent null reference exceptions
+        Sections = new HashSet<Section>();
+        UserCourses = new HashSet<UserCourse>();
+        Ratings = new HashSet<Rating>();
+        CourseCategories = new HashSet<CourseCategory>();
+        CourseComments = new HashSet<CourseComment>();
+        CourseTechnologies = new HashSet<CourseTechnology>();
+        CourseBenefits = new HashSet<CourseBenefit>();
+        CourseRequirements = new HashSet<CourseRequirement>();
+        CourseSections = new HashSet<CourseSection>();
+        CourseQAs = new HashSet<CourseQA>();
     }
 
     public static Course Create(string name, string? description, decimal price, decimal? salePrice, string? imageUrl, string? videoUrl, string? slug, string status, Guid authorId, CourseLevel level, int totalViews, double totalDuration, double rating, Guid createdBy)
@@ -70,6 +94,7 @@ public class Course : AggregateRoot<Guid>, IBaseAuditEntity
         RaiseDomainEvent(new DomainEvent.CourseDeleted(Guid.NewGuid(), Id, DeletedBy, DeletedAt));
     }
 
+    // Basic properties
     public string Name { get; private set; }
     public string? Description { get; private set; }
     public decimal Price { get; private set; }
@@ -84,6 +109,7 @@ public class Course : AggregateRoot<Guid>, IBaseAuditEntity
     public double TotalDuration { get; private set; }
     public double Rating { get; private set; }
 
+    // Audit properties
     public DateTime CreatedAt { get; set; }
     public Guid CreatedBy { get; set; }
     public DateTime? UpdatedAt { get; set; }
@@ -91,4 +117,17 @@ public class Course : AggregateRoot<Guid>, IBaseAuditEntity
     public bool IsDeleted { get; set; }
     public DateTime? DeletedAt { get; set; }
     public Guid? DeletedBy { get; set; }
+
+    // Navigation properties
+    public virtual AppUser Author { get; private set; }
+    public virtual ICollection<Section> Sections { get; private set; }
+    public virtual ICollection<UserCourse> UserCourses { get; private set; }
+    public virtual ICollection<Rating> Ratings { get; private set; }
+    public virtual ICollection<CourseCategory> CourseCategories { get; private set; }
+    public virtual ICollection<CourseComment> CourseComments { get; private set; }
+    public virtual ICollection<CourseTechnology> CourseTechnologies { get; private set; }
+    public virtual ICollection<CourseBenefit> CourseBenefits { get; private set; }
+    public virtual ICollection<CourseRequirement> CourseRequirements { get; private set; }
+    public virtual ICollection<CourseSection> CourseSections { get; private set; }
+    public virtual ICollection<CourseQA> CourseQAs { get; private set; }
 }
