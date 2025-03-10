@@ -15,4 +15,8 @@
     <ProjectReference Include="..\AnyCodeHub.Contract\AnyCodeHub.Contract.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Enums\" />
+  </ItemGroup>
+
 </Project>

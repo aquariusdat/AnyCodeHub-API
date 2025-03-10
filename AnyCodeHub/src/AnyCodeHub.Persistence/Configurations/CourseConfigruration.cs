@@ -1,5 +1,4 @@
 ﻿using AnyCodeHub.Domain.Entities;
-using AnyCodeHub.Domain.Enums;
 using AnyCodeHub.Persistence.Constants;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;

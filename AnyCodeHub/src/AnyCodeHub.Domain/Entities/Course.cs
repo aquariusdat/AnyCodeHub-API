@@ -1,15 +1,20 @@
-﻿using AnyCodeHub.Domain.Abstractions.Entities;
-using AnyCodeHub.Domain.Enums;
+﻿using AnyCodeHub.Contract.Abstractions.Message;
+using AnyCodeHub.Contract.Enumerations;
+using AnyCodeHub.Contract.Services.V1.Course;
+using AnyCodeHub.Domain.Abstractions.Aggregates;
+using AnyCodeHub.Domain.Abstractions.Entities;
 
 namespace AnyCodeHub.Domain.Entities;
 
-public class Course : DomainEntity<Guid>, IBaseAuditEntity
+public class Course : AggregateRoot<Guid>, IBaseAuditEntity
 {
     private Course()
     {
     }
+
     private Course(string name, string? description, decimal price, decimal? salePrice, string? imageUrl, string? videoUrl, string? slug, string status, Guid authorId, CourseLevel level, int totalViews, double totalDuration, double rating, Guid createdBy)
     {
+        Id = Guid.NewGuid();
         Name = name;
         Description = description;
         Price = price;
@@ -28,7 +33,11 @@ public class Course : DomainEntity<Guid>, IBaseAuditEntity
     }
 
     public static Course Create(string name, string? description, decimal price, decimal? salePrice, string? imageUrl, string? videoUrl, string? slug, string status, Guid authorId, CourseLevel level, int totalViews, double totalDuration, double rating, Guid createdBy)
-        => new Course(name, description, price, salePrice, imageUrl, videoUrl, slug, status, authorId, level, totalViews, totalDuration, rating, createdBy);
+    {
+        Course course = new Course(name, description, price, salePrice, imageUrl, videoUrl, slug, status, authorId, level, totalViews, totalDuration, rating, createdBy);
+        course.RaiseDomainEvent(new DomainEvent.CourseCreated(Guid.NewGuid(), course.Id, name, description, price, salePrice, imageUrl, videoUrl, slug, status, authorId, level, totalViews, totalDuration, rating, createdBy, DateTime.Now));
+        return course;
+    }
 
     public void Update(Guid id, string name, string? description, decimal price, decimal? salePrice, string? imageUrl, string? videoUrl, string? slug, string status, Guid authorId, CourseLevel level, int totalViews, double totalDuration, double rating, Guid updatedBy)
     {
@@ -48,6 +57,8 @@ public class Course : DomainEntity<Guid>, IBaseAuditEntity
         Rating = rating;
         UpdatedAt = DateTime.Now;
         UpdatedBy = updatedBy;
+
+        RaiseDomainEvent(new DomainEvent.CourseUpdated(Guid.NewGuid(), Id, name, description, price, salePrice, imageUrl, videoUrl, slug, status, authorId, level, totalViews, totalDuration, rating, UpdatedBy, UpdatedAt));
     }
 
     public void Delete(Guid deletedBy)
@@ -55,6 +66,8 @@ public class Course : DomainEntity<Guid>, IBaseAuditEntity
         IsDeleted = true;
         DeletedAt = DateTime.Now;
         DeletedBy = deletedBy;
+
+        RaiseDomainEvent(new DomainEvent.CourseDeleted(Guid.NewGuid(), Id, DeletedBy, DeletedAt));
     }
 
     public string Name { get; private set; }

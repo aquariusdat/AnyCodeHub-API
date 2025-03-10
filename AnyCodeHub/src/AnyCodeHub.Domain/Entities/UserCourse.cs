@@ -1,24 +1,51 @@
-﻿using AnyCodeHub.Domain.Abstractions.Entities;
+﻿using AnyCodeHub.Contract.Abstractions.Message;
+using AnyCodeHub.Contract.Services.V1.UserCourse;
+using AnyCodeHub.Domain.Abstractions.Aggregates;
+using AnyCodeHub.Domain.Abstractions.Entities;
 
 namespace AnyCodeHub.Domain.Entities;
 
-public class UserCourse : DomainEntity<Guid>, IBaseAuditEntity
+public class UserCourse : AggregateRoot<Guid>, IBaseAuditEntity
 {
     private UserCourse()
     {
-        
     }
 
-    private UserCourse(Guid UserId, Guid CourseId, Guid CreatedBy)
+    private UserCourse(Guid userId, Guid courseId, Guid createdBy)
     {
         Id = Guid.NewGuid();
-        this.UserId = UserId;
-        this.CourseId = CourseId;
+        UserId = userId;
+        CourseId = courseId;
+        CreatedBy = createdBy;
         CreatedAt = DateTime.Now;
-        this.CreatedBy = CreatedBy;
-    }   
+    }
 
-    public static void Create(Guid UserId, Guid CourseId, Guid CreatedBy) => new UserCourse(UserId, CourseId, CreatedBy);
+    public static UserCourse Create(Guid userId, Guid courseId, Guid createdBy)
+    {
+        UserCourse userCourse = new UserCourse(userId, courseId, createdBy);
+        userCourse.RaiseDomainEvent(new DomainEvent.UserCourseCreated(Guid.NewGuid(), userCourse.Id, userId, courseId, createdBy, DateTime.Now));
+        return userCourse;
+    }
+
+    public void Update(Guid id, Guid userId, Guid courseId, Guid updatedBy)
+    {
+        Id = id;
+        UserId = userId;
+        CourseId = courseId;
+        UpdatedAt = DateTime.Now;
+        UpdatedBy = updatedBy;
+
+        RaiseDomainEvent(new DomainEvent.UserCourseUpdated(Guid.NewGuid(), Id, UserId, CourseId, UpdatedBy, UpdatedAt));
+    }
+
+    public void Delete(Guid deletedBy)
+    {
+        IsDeleted = true;
+        DeletedAt = DateTime.Now;
+        DeletedBy = deletedBy;
+
+        RaiseDomainEvent(new DomainEvent.UserCourseDeleted(Guid.NewGuid(), Id, DeletedBy, DeletedAt));
+    }
 
     public Guid UserId { get; private set; }
     public Guid CourseId { get; private set; }

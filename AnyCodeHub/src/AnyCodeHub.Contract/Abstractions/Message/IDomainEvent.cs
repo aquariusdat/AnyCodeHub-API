@@ -7,9 +7,9 @@ namespace AnyCodeHub.Contract.Abstractions.Message;
 [ExcludeFromTopology]
 public interface IDomainEvent : IRequest
 {
-    public Guid EventId { get; set; }
+    public Guid EventId { get; init; }
     public Guid Id { get; set; }
-    public DateTime TimeStamp { get; set; }
+    public DateTimeOffset TimeStamp { get; set; }
 }
 [ExcludeFromTopology]
 public interface IDomainEvent<TResponse> : IRequest<Result<TResponse>>
