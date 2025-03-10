@@ -1,4 +1,5 @@
-﻿using AnyCodeHub.Domain.Entities.Identity;
+﻿using AnyCodeHub.Domain.Entities;
+using AnyCodeHub.Domain.Entities.Identity;
 using AutoMapper;
 
 namespace AnyCodeHub.Application.Mappers;
@@ -9,6 +10,7 @@ public class ServiceProfile : Profile
     {
         // V1
         CreateMap<Contract.Services.V1.Authentication.Command.RegisterCommand, AppUser>().ReverseMap();
+        CreateMap<Contract.Services.V1.Course.Response.CourseResponse, Course>().ReverseMap();
         //CreateMap<Post, Contract.Services.V1.Post.Response.PostResponse>().ReverseMap();
         //CreateMap<PagedResult<Post>, PagedResult<Contract.Services.V1.Post.Response.PostResponse>>().ReverseMap();
 

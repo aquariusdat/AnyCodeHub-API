@@ -13,7 +13,7 @@ namespace AnyCodeHub.Presentation.Controllers.V1;
 [ApiVersion(1)]
 public class CourseController : ApiController
 {
-    protected CourseController(ISender sender) : base(sender)
+    public CourseController(ISender sender) : base(sender)
     {
     }
 
