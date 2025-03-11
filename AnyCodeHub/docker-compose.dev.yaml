@@ -1,0 +1,66 @@
+version: "3.9"
+
+services:
+    anycodehubapi:
+        build:
+            context: .
+            dockerfile: Dockerfile.API
+        ports:
+        - "8868:8080"
+        depends_on:
+        - anycodehub.redis
+        - anycodehubdb
+        restart: always
+        container_name: 'anycodehubapi'
+        command: >
+            sh -c "dotnet ef database update --project /app/AnyCodeHub.Persistence --startup-project /app/AnyCodeHub.API && dotnet AnyCodeHub.API.dll"
+            
+    anycodemq:
+        container_name: 'rabbitmq'
+        image: rabbitmq:3.12-management
+        restart: always
+        environment: 
+            - RABBITMQ_DEFAULT_USERNAME=anycodehub
+            - RABBITMQ_DEFAULT_PASSWORD=anycodehub
+            - RABBITMQ_DEFAULT_VHOST=anycodehub
+        ports:
+        - 5672:5672
+        - 15672:15672 
+
+    anycodehubdb:
+        image: postgres
+        container_name: 'anycodehubdb'
+        restart: always
+        environment:
+        - POSTGRES_USER=anycodehub
+        - POSTGRES_PASSWORD=anycodehub
+        - POSTGRES_DB=anycodehub
+        ports:
+        - 5432:5432
+        volumes:
+        - pgdata:/var/lib/postgresql/data
+
+    anycodehub.redis:
+        image: redis/redis-stack:latest
+        container_name: 'anycodehub.redis'
+        restart: always
+        ports: 
+          - 6379:6379
+          - 8001:8001
+
+    anycodehubdb.mongodb:
+        image: mongo
+        restart: always
+        environment:
+            - MONGO_INITDB_ROOT_USERNAME=anycodehubdb
+            - MONGO_INITDB_ROOT_PASSWORD=anycodehubdb
+        ports:
+        - 27017:27017
+        volumes:
+        - mongodata:/var/lib/mongodb/data
+volumes:
+  pgdata:
+  mongodata:
+# networks:
+#   anycodeapi-network:
+#     driver: bridge    
