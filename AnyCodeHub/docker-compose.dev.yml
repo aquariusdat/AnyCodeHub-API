@@ -1,6 +1,20 @@
 version: "3.9"
 
 services:
+    anycodehubapi:
+        build:
+            context: .
+            dockerfile: Dockerfile.API
+        ports:
+        - "8080:8080"
+        depends_on:
+        - anycodehub.redis
+        - anycodehubdb
+        restart: always
+        container_name: 'anycodehubapi'
+        # command: >
+        #     sh -c "dotnet ef database update --project /app/AnyCodeHub.Persistence --startup-project /app/AnyCodeHub.API && dotnet AnyCodeHub.API.dll"
+
     anycodemq:
         container_name: 'rabbitmq'
         image: rabbitmq:3.12-management
@@ -22,13 +36,13 @@ services:
         - POSTGRES_PASSWORD=anycodehub
         - POSTGRES_DB=anycodehub
         ports:
-        - 5445:5432
+        - 5432:5432
         volumes:
         - pgdata:/var/lib/postgresql/data
 
-    anycodehubdb.redis:
+    anycodehub.redis:
         image: redis/redis-stack:latest
-        container_name: 'anycodehubdb.redis'
+        container_name: 'anycodehub.redis'
         restart: always
         ports: 
           - 6379:6379
