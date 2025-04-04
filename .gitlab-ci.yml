@@ -1,0 +1,63 @@
+stages:
+  - build
+  - test
+  - deploy
+
+variables:
+  # Thay đổi các biến môi trường theo project của bạn
+  DOCKER_REGISTRY: registry.gitlab.com
+  DOCKER_IMAGE: $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
+  SERVER_IP: your-server-ip
+  SERVER_USER: your-server-user
+  DOTNET_VERSION: "8.0"
+  PROJECT_NAME: "your-project-name"
+
+# Cache node_modules để tăng tốc độ build
+cache:
+  paths:
+    - node_modules/
+
+build:
+  stage: build
+  image: mcr.microsoft.com/dotnet/sdk:8.0
+  script:
+    - dotnet restore
+    - dotnet build --configuration Release
+    - dotnet publish -c Release -o publish
+  artifacts:
+    paths:
+      - publish/
+    expire_in: 1 hour
+
+test:
+  stage: test
+  image: mcr.microsoft.com/dotnet/sdk:8.0
+  script:
+    - dotnet restore
+    - dotnet test
+  dependencies:
+    - build
+
+deploy:
+  stage: deploy
+  image: ubuntu:latest
+  before_script:
+    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - echo "$SSH_KNOWN_HOSTS" >> ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+  script:
+    # Tạo thư mục trên server nếu chưa tồn tại
+    - ssh $SERVER_USER@$SERVER_IP "mkdir -p /var/www/$PROJECT_NAME"
+    # Copy các file được publish lên server
+    - scp -r publish/* $SERVER_USER@$SERVER_IP:/var/www/$PROJECT_NAME
+    # Restart service
+    - |
+      ssh $SERVER_USER@$SERVER_IP "cd /var/www/$PROJECT_NAME && \
+      sudo systemctl stop $PROJECT_NAME.service || true && \
+      sudo systemctl start $PROJECT_NAME.service"
+  only:
+    - main 
