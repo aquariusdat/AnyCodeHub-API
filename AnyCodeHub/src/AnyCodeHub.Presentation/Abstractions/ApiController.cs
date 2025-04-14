@@ -13,7 +13,7 @@ namespace AnyCodeHub.Presentation.Abstractions;
 public class ApiController : ControllerBase
 {
     protected readonly ISender _sender;
-    protected ApiController(ISender sender)
+    public ApiController(ISender sender)
     {
         _sender = sender;
     }

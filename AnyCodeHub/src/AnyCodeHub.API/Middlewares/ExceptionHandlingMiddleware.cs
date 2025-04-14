@@ -35,6 +35,8 @@ internal sealed class ExceptionHandlingMiddleware : IMiddleware
             status = statusCode,
             detail = exception.Message,
             errors = GetErrors(exception),
+            isSuccess = false,
+            isFailure = true,
         };
 
         httpContext.Response.ContentType = "application/json";
@@ -49,6 +51,13 @@ internal sealed class ExceptionHandlingMiddleware : IMiddleware
         {
             BadRequestException => StatusCodes.Status400BadRequest,
             ExistsException => StatusCodes.Status400BadRequest,
+            RegisterException.UserNameExistsException => StatusCodes.Status400BadRequest,
+            RegisterException.PhoneNumberExistsException => StatusCodes.Status400BadRequest,
+            RegisterException.EmailExistsException => StatusCodes.Status400BadRequest,
+            PostCategoryException.PostCategoryNotFoundException => StatusCodes.Status400BadRequest,
+            PostException.PostNotFoundException => StatusCodes.Status400BadRequest,
+            PostException.PostInsertFailedException => StatusCodes.Status400BadRequest,
+            PostException.PostUpdateFailedException => StatusCodes.Status400BadRequest,
             AlreadyDeletedException => StatusCodes.Status400BadRequest,
             NotFoundException => StatusCodes.Status404NotFound,
             //Application.Exceptions.ValidationException => StatusCodes.Status422UnprocessableEntity,

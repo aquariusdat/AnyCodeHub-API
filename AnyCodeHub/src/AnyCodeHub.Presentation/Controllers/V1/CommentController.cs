@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using AnyCodeHub.Contract.Services.V1.Comment;
 using static AnyCodeHub.Contract.Services.V1.Comment.Response;
 using AnyCodeHub.Contract.Extensions;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AnyCodeHub.Presentation.Controllers.V1;
 

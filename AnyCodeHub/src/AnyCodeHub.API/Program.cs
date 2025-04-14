@@ -33,6 +33,7 @@ builder.Services.AddControllers().AddApplicationPart(AnyCodeHub.Presentation.Ass
 // Add configurations
 builder.Services.AddMediatRApplication();
 builder.Services.AddAutoMapperApplication();
+builder.Services.AddCorsInfrastructure(builder.Configuration);
 #endregion Application
 
 #region Infrastructure
@@ -69,6 +70,7 @@ var app = builder.Build();
 app.UseMiddleware<ExceptionHandlingMiddleware>();
 
 app.UseAuthentication();
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -80,6 +82,7 @@ if (app.Environment.IsDevelopment())
     });
 }
 
+app.UseCors("AnyCodeHubCORSName");
 app.UseAuthorization();
 
 app.MapControllers();

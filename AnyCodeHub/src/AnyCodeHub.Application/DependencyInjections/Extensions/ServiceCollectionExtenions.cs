@@ -14,6 +14,7 @@ using AnyCodeHub.Infrastructure.Auth.Abstractions;
 using Microsoft.AspNetCore.Builder;
 using AnyCodeHub.Application.Mappers;
 using System.Text;
+using AnyCodeHub.Application.DependencyInjections.Options;
 
 namespace AnyCodeHub.Application.DependencyInjections.Extensions;
 public static class ServiceCollectionExtenions
@@ -39,7 +40,49 @@ public static class ServiceCollectionExtenions
         app.UseCors(_corsName);
     }
 
+    public static void AddCorsInfrastructure(this IServiceCollection services, IConfiguration configuration)
+    {
+        var corsOptions = configuration.GetSection("CorsOptions").Get<CorsOptions>();
+        services.AddSingleton(corsOptions);
 
+        services.AddCors(options =>
+        {
+            options.AddPolicy(_corsName, builder =>
+            {
+                if (corsOptions.AllowedOrigins.Length > 0)
+                {
+                    builder.WithOrigins(corsOptions.AllowedOrigins);
+                }
+                else
+                {
+                    builder.AllowAnyOrigin();
+                }
+
+                if (corsOptions.AllowedMethods.Length > 0)
+                {
+                    builder.WithMethods(corsOptions.AllowedMethods);
+                }
+                else
+                {
+                    builder.AllowAnyMethod();
+                }
+
+                if (corsOptions.AllowedHeaders.Length > 0)
+                {
+                    builder.WithHeaders(corsOptions.AllowedHeaders);
+                }
+                else
+                {
+                    builder.AllowAnyHeader();
+                }
+
+                if (corsOptions.AllowCredentials)
+                {
+                    builder.AllowCredentials();
+                }
+            });
+        });
+    }
 
     public static void AddAutoMapperApplication(this IServiceCollection services)
     {

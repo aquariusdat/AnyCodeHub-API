@@ -1,6 +1,9 @@
 ﻿namespace AnyCodeHub.Domain.Exceptions;
-public static class RegisterException
+public abstract class RegisterException : DomainException
 {
+    protected RegisterException(string title, string message) : base(title, message)
+    {
+    }
 
     public class EmailExistsException : Exception
     {
