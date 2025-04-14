@@ -5,10 +5,12 @@ using AnyCodeHub.Contract.CommonServices;
 using AnyCodeHub.Domain.Entities.Identity;
 using AnyCodeHub.Domain.Exceptions;
 using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using System.Text.RegularExpressions;
+using System.Web;
 using static AnyCodeHub.Contract.Services.V1.Authentication.Command;
 using static AnyCodeHub.Contract.Services.V1.Authentication.Query;
 
@@ -21,13 +23,15 @@ public class RegisterCommandHandler : ICommandHandler<RegisterCommand, bool>
     private readonly IEmailSenderService _emailSenderService;
     private readonly IUrlHelperService _urlHelperService;
     private readonly ILogger<RegisterCommandHandler> _logger;
-    public RegisterCommandHandler(IMapper mapper, UserManager<AppUser> userManager, IEmailSenderService emailSenderService, IUrlHelperService urlHelperService, ILogger<RegisterCommandHandler> logger)
+    private readonly IHttpContextAccessor _contextAccessor;
+    public RegisterCommandHandler(IMapper mapper, UserManager<AppUser> userManager, IEmailSenderService emailSenderService, IUrlHelperService urlHelperService, ILogger<RegisterCommandHandler> logger, IHttpContextAccessor contextAccessor = null)
     {
         _mapper = mapper;
         _userManager = userManager;
         _emailSenderService = emailSenderService;
         _urlHelperService = urlHelperService;
         _logger = logger;
+        _contextAccessor = contextAccessor;
     }
     public async Task<Result<bool>> Handle(RegisterCommand request, CancellationToken cancellationToken)
     {
@@ -45,8 +49,15 @@ public class RegisterCommandHandler : ICommandHandler<RegisterCommand, bool>
 
             if (result.Succeeded)
             {
+                var clientUrl = _contextAccessor.HttpContext.Request.Headers["Referer"].ToString();
+                if (string.IsNullOrEmpty(clientUrl))
+                {
+                    var scheme = _contextAccessor.HttpContext.Request.Scheme;
+                    var host = _contextAccessor.HttpContext.Request.Host;
+                    clientUrl = $"{scheme}://{host}";
+                }
                 string tokenVerification = await _userManager.GenerateEmailConfirmationTokenAsync(register);
-                var confirmationLink = _urlHelperService.GenerateMailConfirmationLink(register.Email, tokenVerification);
+                var confirmationLink = _urlHelperService.GenerateMailConfirmationLink(register.Email, tokenVerification, clientUrl);
                 _emailSenderService.SendAsync(register.Email, "Verify your email to active your AnyCodeHub account.", "", $"""
                     <div style="">
                         <div><h3>To verify your email  address <a href="mailto:{register.Email.ToLower()}" target="_blank">{register.Email.ToLower()}</a> visit the following link:</h3></div>

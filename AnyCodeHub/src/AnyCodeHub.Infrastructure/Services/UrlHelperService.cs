@@ -17,16 +17,20 @@ public class UrlHelperService : IUrlHelperService
         _contextAccessor = contextAccessor;
         _logger = logger;
     }
-    public string GenerateMailConfirmationLink(string Email, string Token)
+    public string GenerateMailConfirmationLink(string Email, string Token, string CallbackUrl)
     {
         var request = _contextAccessor.HttpContext?.Request;
         if (request is null) throw new InvalidOperationException($"Cannot generate Url outside of an Http context.");
 
         var scheme = request.Scheme;
         var host = request.Host;
-        var pathBase = request.PathBase;
 
-        return $"{scheme}://{host}{pathBase}/user/confirm-email?Email={Email}&Token={HttpUtility.UrlEncode(Token)}";
+        // Extract API version from the request path
+        var pathSegments = request.Path.Value?.Split('/', StringSplitOptions.RemoveEmptyEntries);
+        var apiVersion = pathSegments?.Length >= 2 ? $"/api/{pathSegments[1]}" : "/api/v1";
+        var pathBase = apiVersion + request.PathBase;
+
+        return $"{scheme}://{host}{pathBase}/user/confirm-email?Email={Email}&Token={HttpUtility.UrlEncode(Token)}&CallbackUrl={CallbackUrl}";
     }
 
     public string GenerateSlug(string Name)

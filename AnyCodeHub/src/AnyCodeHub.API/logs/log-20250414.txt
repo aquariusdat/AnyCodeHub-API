@@ -1283,3 +1283,595 @@ AnyCodeHub.Domain.Exceptions.RegisterException+EmailExistsException: Email [huat
    at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
    at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
    at AnyCodeHub.API.Middlewares.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context, RequestDelegate next) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.API\Middlewares\ExceptionHandlingMiddleware.cs:line 18
+2025-04-14 20:58:51.410 +07:00 [ERR] Error while registering user. 
+[ex=AnyCodeHub.Domain.Exceptions.RegisterException+EmailExistsException: Email [huatondat1621999@gmail.com] already exists.
+   at AnyCodeHub.Application.Usecases.V1.Commands.Authentication.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Usecases\V1\Commands\Authentication\RegisterCommandHandler.cs:line 37]
+2025-04-14 20:58:51.515 +07:00 [ERR] Email [huatondat1621999@gmail.com] already exists.
+AnyCodeHub.Domain.Exceptions.RegisterException+EmailExistsException: Email [huatondat1621999@gmail.com] already exists.
+   at AnyCodeHub.Application.Usecases.V1.Commands.Authentication.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Usecases\V1\Commands\Authentication\RegisterCommandHandler.cs:line 37
+   at AnyCodeHub.Application.Behaviors.TransactionPipelineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\TransactionPipelineBehavior.cs:line 50
+   at AnyCodeHub.Application.Behaviors.ValidationPipelineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\ValidationPipelineBehavior.cs:line 41
+   at AnyCodeHub.Application.Behaviors.PerformancePiplineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\PerformancePiplineBehavior.cs:line 19
+   at AnyCodeHub.Application.Behaviors.LoggingPiplineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\LoggingPiplineBehavior.cs:line 19
+   at AnyCodeHub.Presentation.Controllers.V1.AuthController.Register(RegisterCommand registerCommand) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Presentation\Controllers\V1\AuthController.cs:line 106
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at AnyCodeHub.API.Middlewares.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context, RequestDelegate next) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.API\Middlewares\ExceptionHandlingMiddleware.cs:line 18
+2025-04-14 20:59:22.780 +07:00 [ERR] Error while registering user. 
+[ex=AnyCodeHub.Domain.Exceptions.RegisterException+EmailExistsException: Email [huatondat1621999@gmail.com] already exists.
+   at AnyCodeHub.Application.Usecases.V1.Commands.Authentication.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Usecases\V1\Commands\Authentication\RegisterCommandHandler.cs:line 37]
+2025-04-14 20:59:23.067 +07:00 [ERR] Email [huatondat1621999@gmail.com] already exists.
+AnyCodeHub.Domain.Exceptions.RegisterException+EmailExistsException: Email [huatondat1621999@gmail.com] already exists.
+   at AnyCodeHub.Application.Usecases.V1.Commands.Authentication.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Usecases\V1\Commands\Authentication\RegisterCommandHandler.cs:line 37
+   at AnyCodeHub.Application.Behaviors.TransactionPipelineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\TransactionPipelineBehavior.cs:line 50
+   at AnyCodeHub.Application.Behaviors.ValidationPipelineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\ValidationPipelineBehavior.cs:line 41
+   at AnyCodeHub.Application.Behaviors.PerformancePiplineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\PerformancePiplineBehavior.cs:line 19
+   at AnyCodeHub.Application.Behaviors.LoggingPiplineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\LoggingPiplineBehavior.cs:line 19
+   at AnyCodeHub.Presentation.Controllers.V1.AuthController.Register(RegisterCommand registerCommand) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Presentation\Controllers\V1\AuthController.cs:line 106
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at AnyCodeHub.API.Middlewares.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context, RequestDelegate next) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.API\Middlewares\ExceptionHandlingMiddleware.cs:line 18
+2025-04-14 20:59:30.827 +07:00 [ERR] Error while registering user. 
+[ex=AnyCodeHub.Domain.Exceptions.RegisterException+EmailExistsException: Email [huatondat1621999@gmail.com] already exists.
+   at AnyCodeHub.Application.Usecases.V1.Commands.Authentication.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Usecases\V1\Commands\Authentication\RegisterCommandHandler.cs:line 37]
+2025-04-14 20:59:31.147 +07:00 [ERR] Email [huatondat1621999@gmail.com] already exists.
+AnyCodeHub.Domain.Exceptions.RegisterException+EmailExistsException: Email [huatondat1621999@gmail.com] already exists.
+   at AnyCodeHub.Application.Usecases.V1.Commands.Authentication.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Usecases\V1\Commands\Authentication\RegisterCommandHandler.cs:line 37
+   at AnyCodeHub.Application.Behaviors.TransactionPipelineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\TransactionPipelineBehavior.cs:line 50
+   at AnyCodeHub.Application.Behaviors.ValidationPipelineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\ValidationPipelineBehavior.cs:line 41
+   at AnyCodeHub.Application.Behaviors.PerformancePiplineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\PerformancePiplineBehavior.cs:line 19
+   at AnyCodeHub.Application.Behaviors.LoggingPiplineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\LoggingPiplineBehavior.cs:line 19
+   at AnyCodeHub.Presentation.Controllers.V1.AuthController.Register(RegisterCommand registerCommand) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Presentation\Controllers\V1\AuthController.cs:line 106
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at AnyCodeHub.API.Middlewares.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context, RequestDelegate next) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.API\Middlewares\ExceptionHandlingMiddleware.cs:line 18
+2025-04-14 20:59:45.035 +07:00 [ERR] Error while registering user. 
+[ex=AnyCodeHub.Domain.Exceptions.RegisterException+EmailExistsException: Email [huatondat1621999@gmail.com] already exists.
+   at AnyCodeHub.Application.Usecases.V1.Commands.Authentication.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Usecases\V1\Commands\Authentication\RegisterCommandHandler.cs:line 37]
+2025-04-14 20:59:45.312 +07:00 [ERR] Email [huatondat1621999@gmail.com] already exists.
+AnyCodeHub.Domain.Exceptions.RegisterException+EmailExistsException: Email [huatondat1621999@gmail.com] already exists.
+   at AnyCodeHub.Application.Usecases.V1.Commands.Authentication.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Usecases\V1\Commands\Authentication\RegisterCommandHandler.cs:line 37
+   at AnyCodeHub.Application.Behaviors.TransactionPipelineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\TransactionPipelineBehavior.cs:line 50
+   at AnyCodeHub.Application.Behaviors.ValidationPipelineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\ValidationPipelineBehavior.cs:line 41
+   at AnyCodeHub.Application.Behaviors.PerformancePiplineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\PerformancePiplineBehavior.cs:line 19
+   at AnyCodeHub.Application.Behaviors.LoggingPiplineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\LoggingPiplineBehavior.cs:line 19
+   at AnyCodeHub.Presentation.Controllers.V1.AuthController.Register(RegisterCommand registerCommand) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Presentation\Controllers\V1\AuthController.cs:line 106
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at AnyCodeHub.API.Middlewares.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context, RequestDelegate next) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.API\Middlewares\ExceptionHandlingMiddleware.cs:line 18
+2025-04-14 21:00:32.712 +07:00 [ERR] Error while registering user. 
+[ex=AnyCodeHub.Domain.Exceptions.RegisterException+EmailExistsException: Email [huatondat1621999@gmail.com] already exists.
+   at AnyCodeHub.Application.Usecases.V1.Commands.Authentication.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Usecases\V1\Commands\Authentication\RegisterCommandHandler.cs:line 37]
+2025-04-14 21:00:33.067 +07:00 [ERR] Email [huatondat1621999@gmail.com] already exists.
+AnyCodeHub.Domain.Exceptions.RegisterException+EmailExistsException: Email [huatondat1621999@gmail.com] already exists.
+   at AnyCodeHub.Application.Usecases.V1.Commands.Authentication.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Usecases\V1\Commands\Authentication\RegisterCommandHandler.cs:line 37
+   at AnyCodeHub.Application.Behaviors.TransactionPipelineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\TransactionPipelineBehavior.cs:line 50
+   at AnyCodeHub.Application.Behaviors.ValidationPipelineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\ValidationPipelineBehavior.cs:line 41
+   at AnyCodeHub.Application.Behaviors.PerformancePiplineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\PerformancePiplineBehavior.cs:line 19
+   at AnyCodeHub.Application.Behaviors.LoggingPiplineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\LoggingPiplineBehavior.cs:line 19
+   at AnyCodeHub.Presentation.Controllers.V1.AuthController.Register(RegisterCommand registerCommand) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Presentation\Controllers\V1\AuthController.cs:line 106
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at AnyCodeHub.API.Middlewares.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context, RequestDelegate next) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.API\Middlewares\ExceptionHandlingMiddleware.cs:line 18
+2025-04-14 21:01:18.972 +07:00 [ERR] Error while registering user. 
+[ex=AnyCodeHub.Domain.Exceptions.RegisterException+EmailExistsException: Email [huatondat1621999@gmail.com] already exists.
+   at AnyCodeHub.Application.Usecases.V1.Commands.Authentication.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Usecases\V1\Commands\Authentication\RegisterCommandHandler.cs:line 37]
+2025-04-14 21:01:19.329 +07:00 [ERR] Email [huatondat1621999@gmail.com] already exists.
+AnyCodeHub.Domain.Exceptions.RegisterException+EmailExistsException: Email [huatondat1621999@gmail.com] already exists.
+   at AnyCodeHub.Application.Usecases.V1.Commands.Authentication.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Usecases\V1\Commands\Authentication\RegisterCommandHandler.cs:line 37
+   at AnyCodeHub.Application.Behaviors.TransactionPipelineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\TransactionPipelineBehavior.cs:line 50
+   at AnyCodeHub.Application.Behaviors.ValidationPipelineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\ValidationPipelineBehavior.cs:line 41
+   at AnyCodeHub.Application.Behaviors.PerformancePiplineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\PerformancePiplineBehavior.cs:line 19
+   at AnyCodeHub.Application.Behaviors.LoggingPiplineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\LoggingPiplineBehavior.cs:line 19
+   at AnyCodeHub.Presentation.Controllers.V1.AuthController.Register(RegisterCommand registerCommand) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Presentation\Controllers\V1\AuthController.cs:line 106
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at AnyCodeHub.API.Middlewares.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context, RequestDelegate next) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.API\Middlewares\ExceptionHandlingMiddleware.cs:line 18
+2025-04-14 21:01:37.186 +07:00 [ERR] Error while registering user. 
+[ex=AnyCodeHub.Domain.Exceptions.RegisterException+EmailExistsException: Email [huatondat1621999@gmail.com] already exists.
+   at AnyCodeHub.Application.Usecases.V1.Commands.Authentication.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Usecases\V1\Commands\Authentication\RegisterCommandHandler.cs:line 37]
+2025-04-14 21:01:37.532 +07:00 [ERR] Email [huatondat1621999@gmail.com] already exists.
+AnyCodeHub.Domain.Exceptions.RegisterException+EmailExistsException: Email [huatondat1621999@gmail.com] already exists.
+   at AnyCodeHub.Application.Usecases.V1.Commands.Authentication.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Usecases\V1\Commands\Authentication\RegisterCommandHandler.cs:line 37
+   at AnyCodeHub.Application.Behaviors.TransactionPipelineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\TransactionPipelineBehavior.cs:line 50
+   at AnyCodeHub.Application.Behaviors.ValidationPipelineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\ValidationPipelineBehavior.cs:line 41
+   at AnyCodeHub.Application.Behaviors.PerformancePiplineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\PerformancePiplineBehavior.cs:line 19
+   at AnyCodeHub.Application.Behaviors.LoggingPiplineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\LoggingPiplineBehavior.cs:line 19
+   at AnyCodeHub.Presentation.Controllers.V1.AuthController.Register(RegisterCommand registerCommand) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Presentation\Controllers\V1\AuthController.cs:line 106
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at AnyCodeHub.API.Middlewares.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context, RequestDelegate next) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.API\Middlewares\ExceptionHandlingMiddleware.cs:line 18
+2025-04-14 21:02:14.432 +07:00 [ERR] Error while registering user. 
+[ex=AnyCodeHub.Domain.Exceptions.RegisterException+EmailExistsException: Email [huatondat1621999@gmail.com] already exists.
+   at AnyCodeHub.Application.Usecases.V1.Commands.Authentication.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Usecases\V1\Commands\Authentication\RegisterCommandHandler.cs:line 37]
+2025-04-14 21:02:14.756 +07:00 [ERR] Email [huatondat1621999@gmail.com] already exists.
+AnyCodeHub.Domain.Exceptions.RegisterException+EmailExistsException: Email [huatondat1621999@gmail.com] already exists.
+   at AnyCodeHub.Application.Usecases.V1.Commands.Authentication.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Usecases\V1\Commands\Authentication\RegisterCommandHandler.cs:line 37
+   at AnyCodeHub.Application.Behaviors.TransactionPipelineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\TransactionPipelineBehavior.cs:line 50
+   at AnyCodeHub.Application.Behaviors.ValidationPipelineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\ValidationPipelineBehavior.cs:line 41
+   at AnyCodeHub.Application.Behaviors.PerformancePiplineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\PerformancePiplineBehavior.cs:line 19
+   at AnyCodeHub.Application.Behaviors.LoggingPiplineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\LoggingPiplineBehavior.cs:line 19
+   at AnyCodeHub.Presentation.Controllers.V1.AuthController.Register(RegisterCommand registerCommand) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Presentation\Controllers\V1\AuthController.cs:line 106
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at AnyCodeHub.API.Middlewares.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context, RequestDelegate next) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.API\Middlewares\ExceptionHandlingMiddleware.cs:line 18
+2025-04-14 21:02:18.322 +07:00 [ERR] Error while registering user. 
+[ex=AnyCodeHub.Domain.Exceptions.RegisterException+EmailExistsException: Email [huatondat1621999@gmail.com] already exists.
+   at AnyCodeHub.Application.Usecases.V1.Commands.Authentication.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Usecases\V1\Commands\Authentication\RegisterCommandHandler.cs:line 37]
+2025-04-14 21:02:18.596 +07:00 [ERR] Email [huatondat1621999@gmail.com] already exists.
+AnyCodeHub.Domain.Exceptions.RegisterException+EmailExistsException: Email [huatondat1621999@gmail.com] already exists.
+   at AnyCodeHub.Application.Usecases.V1.Commands.Authentication.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Usecases\V1\Commands\Authentication\RegisterCommandHandler.cs:line 37
+   at AnyCodeHub.Application.Behaviors.TransactionPipelineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\TransactionPipelineBehavior.cs:line 50
+   at AnyCodeHub.Application.Behaviors.ValidationPipelineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\ValidationPipelineBehavior.cs:line 41
+   at AnyCodeHub.Application.Behaviors.PerformancePiplineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\PerformancePiplineBehavior.cs:line 19
+   at AnyCodeHub.Application.Behaviors.LoggingPiplineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\LoggingPiplineBehavior.cs:line 19
+   at AnyCodeHub.Presentation.Controllers.V1.AuthController.Register(RegisterCommand registerCommand) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Presentation\Controllers\V1\AuthController.cs:line 106
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at AnyCodeHub.API.Middlewares.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context, RequestDelegate next) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.API\Middlewares\ExceptionHandlingMiddleware.cs:line 18
+2025-04-14 21:02:25.759 +07:00 [ERR] Error while registering user. 
+[ex=AnyCodeHub.Domain.Exceptions.RegisterException+EmailExistsException: Email [huatondat1621999@gmail.com] already exists.
+   at AnyCodeHub.Application.Usecases.V1.Commands.Authentication.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Usecases\V1\Commands\Authentication\RegisterCommandHandler.cs:line 37]
+2025-04-14 21:02:26.164 +07:00 [ERR] Email [huatondat1621999@gmail.com] already exists.
+AnyCodeHub.Domain.Exceptions.RegisterException+EmailExistsException: Email [huatondat1621999@gmail.com] already exists.
+   at AnyCodeHub.Application.Usecases.V1.Commands.Authentication.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Usecases\V1\Commands\Authentication\RegisterCommandHandler.cs:line 37
+   at AnyCodeHub.Application.Behaviors.TransactionPipelineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\TransactionPipelineBehavior.cs:line 50
+   at AnyCodeHub.Application.Behaviors.ValidationPipelineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\ValidationPipelineBehavior.cs:line 41
+   at AnyCodeHub.Application.Behaviors.PerformancePiplineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\PerformancePiplineBehavior.cs:line 19
+   at AnyCodeHub.Application.Behaviors.LoggingPiplineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\LoggingPiplineBehavior.cs:line 19
+   at AnyCodeHub.Presentation.Controllers.V1.AuthController.Register(RegisterCommand registerCommand) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Presentation\Controllers\V1\AuthController.cs:line 106
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at AnyCodeHub.API.Middlewares.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context, RequestDelegate next) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.API\Middlewares\ExceptionHandlingMiddleware.cs:line 18
+2025-04-14 21:03:57.353 +07:00 [ERR] Error while registering user. 
+[ex=AnyCodeHub.Domain.Exceptions.RegisterException+EmailExistsException: Email [huatondat1621999@gmail.com] already exists.
+   at AnyCodeHub.Application.Usecases.V1.Commands.Authentication.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Usecases\V1\Commands\Authentication\RegisterCommandHandler.cs:line 37]
+2025-04-14 21:03:57.678 +07:00 [ERR] Email [huatondat1621999@gmail.com] already exists.
+AnyCodeHub.Domain.Exceptions.RegisterException+EmailExistsException: Email [huatondat1621999@gmail.com] already exists.
+   at AnyCodeHub.Application.Usecases.V1.Commands.Authentication.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Usecases\V1\Commands\Authentication\RegisterCommandHandler.cs:line 37
+   at AnyCodeHub.Application.Behaviors.TransactionPipelineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\TransactionPipelineBehavior.cs:line 50
+   at AnyCodeHub.Application.Behaviors.ValidationPipelineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\ValidationPipelineBehavior.cs:line 41
+   at AnyCodeHub.Application.Behaviors.PerformancePiplineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\PerformancePiplineBehavior.cs:line 19
+   at AnyCodeHub.Application.Behaviors.LoggingPiplineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\LoggingPiplineBehavior.cs:line 19
+   at AnyCodeHub.Presentation.Controllers.V1.AuthController.Register(RegisterCommand registerCommand) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Presentation\Controllers\V1\AuthController.cs:line 106
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at AnyCodeHub.API.Middlewares.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context, RequestDelegate next) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.API\Middlewares\ExceptionHandlingMiddleware.cs:line 18
+2025-04-14 21:04:08.790 +07:00 [ERR] Error while registering user. 
+[ex=AnyCodeHub.Domain.Exceptions.RegisterException+EmailExistsException: Email [huatondat1621999@gmail.com] already exists.
+   at AnyCodeHub.Application.Usecases.V1.Commands.Authentication.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Usecases\V1\Commands\Authentication\RegisterCommandHandler.cs:line 37]
+2025-04-14 21:04:09.305 +07:00 [ERR] Email [huatondat1621999@gmail.com] already exists.
+AnyCodeHub.Domain.Exceptions.RegisterException+EmailExistsException: Email [huatondat1621999@gmail.com] already exists.
+   at AnyCodeHub.Application.Usecases.V1.Commands.Authentication.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Usecases\V1\Commands\Authentication\RegisterCommandHandler.cs:line 37
+   at AnyCodeHub.Application.Behaviors.TransactionPipelineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\TransactionPipelineBehavior.cs:line 50
+   at AnyCodeHub.Application.Behaviors.ValidationPipelineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\ValidationPipelineBehavior.cs:line 41
+   at AnyCodeHub.Application.Behaviors.PerformancePiplineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\PerformancePiplineBehavior.cs:line 19
+   at AnyCodeHub.Application.Behaviors.LoggingPiplineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\LoggingPiplineBehavior.cs:line 19
+   at AnyCodeHub.Presentation.Controllers.V1.AuthController.Register(RegisterCommand registerCommand) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Presentation\Controllers\V1\AuthController.cs:line 106
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at AnyCodeHub.API.Middlewares.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context, RequestDelegate next) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.API\Middlewares\ExceptionHandlingMiddleware.cs:line 18
+2025-04-14 21:04:13.952 +07:00 [ERR] Error while registering user. 
+[ex=AnyCodeHub.Domain.Exceptions.RegisterException+EmailExistsException: Email [huatondat1621999@gmail.com] already exists.
+   at AnyCodeHub.Application.Usecases.V1.Commands.Authentication.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Usecases\V1\Commands\Authentication\RegisterCommandHandler.cs:line 37]
+2025-04-14 21:04:14.184 +07:00 [ERR] Email [huatondat1621999@gmail.com] already exists.
+AnyCodeHub.Domain.Exceptions.RegisterException+EmailExistsException: Email [huatondat1621999@gmail.com] already exists.
+   at AnyCodeHub.Application.Usecases.V1.Commands.Authentication.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Usecases\V1\Commands\Authentication\RegisterCommandHandler.cs:line 37
+   at AnyCodeHub.Application.Behaviors.TransactionPipelineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\TransactionPipelineBehavior.cs:line 50
+   at AnyCodeHub.Application.Behaviors.ValidationPipelineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\ValidationPipelineBehavior.cs:line 41
+   at AnyCodeHub.Application.Behaviors.PerformancePiplineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\PerformancePiplineBehavior.cs:line 19
+   at AnyCodeHub.Application.Behaviors.LoggingPiplineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\LoggingPiplineBehavior.cs:line 19
+   at AnyCodeHub.Presentation.Controllers.V1.AuthController.Register(RegisterCommand registerCommand) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Presentation\Controllers\V1\AuthController.cs:line 106
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at AnyCodeHub.API.Middlewares.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context, RequestDelegate next) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.API\Middlewares\ExceptionHandlingMiddleware.cs:line 18
+2025-04-14 21:04:23.801 +07:00 [ERR] Error while registering user. 
+[ex=AnyCodeHub.Domain.Exceptions.RegisterException+EmailExistsException: Email [huatondat1621999@gmail.com] already exists.
+   at AnyCodeHub.Application.Usecases.V1.Commands.Authentication.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Usecases\V1\Commands\Authentication\RegisterCommandHandler.cs:line 37]
+2025-04-14 21:04:24.048 +07:00 [ERR] Email [huatondat1621999@gmail.com] already exists.
+AnyCodeHub.Domain.Exceptions.RegisterException+EmailExistsException: Email [huatondat1621999@gmail.com] already exists.
+   at AnyCodeHub.Application.Usecases.V1.Commands.Authentication.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Usecases\V1\Commands\Authentication\RegisterCommandHandler.cs:line 37
+   at AnyCodeHub.Application.Behaviors.TransactionPipelineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\TransactionPipelineBehavior.cs:line 50
+   at AnyCodeHub.Application.Behaviors.ValidationPipelineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\ValidationPipelineBehavior.cs:line 41
+   at AnyCodeHub.Application.Behaviors.PerformancePiplineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\PerformancePiplineBehavior.cs:line 19
+   at AnyCodeHub.Application.Behaviors.LoggingPiplineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\LoggingPiplineBehavior.cs:line 19
+   at AnyCodeHub.Presentation.Controllers.V1.AuthController.Register(RegisterCommand registerCommand) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Presentation\Controllers\V1\AuthController.cs:line 106
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at AnyCodeHub.API.Middlewares.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context, RequestDelegate next) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.API\Middlewares\ExceptionHandlingMiddleware.cs:line 18
+2025-04-14 21:04:31.413 +07:00 [ERR] Error while registering user. 
+[ex=AnyCodeHub.Domain.Exceptions.RegisterException+EmailExistsException: Email [huatondat1621999@gmail.com] already exists.
+   at AnyCodeHub.Application.Usecases.V1.Commands.Authentication.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Usecases\V1\Commands\Authentication\RegisterCommandHandler.cs:line 37]
+2025-04-14 21:04:31.678 +07:00 [ERR] Email [huatondat1621999@gmail.com] already exists.
+AnyCodeHub.Domain.Exceptions.RegisterException+EmailExistsException: Email [huatondat1621999@gmail.com] already exists.
+   at AnyCodeHub.Application.Usecases.V1.Commands.Authentication.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Usecases\V1\Commands\Authentication\RegisterCommandHandler.cs:line 37
+   at AnyCodeHub.Application.Behaviors.TransactionPipelineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\TransactionPipelineBehavior.cs:line 50
+   at AnyCodeHub.Application.Behaviors.ValidationPipelineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\ValidationPipelineBehavior.cs:line 41
+   at AnyCodeHub.Application.Behaviors.PerformancePiplineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\PerformancePiplineBehavior.cs:line 19
+   at AnyCodeHub.Application.Behaviors.LoggingPiplineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\LoggingPiplineBehavior.cs:line 19
+   at AnyCodeHub.Presentation.Controllers.V1.AuthController.Register(RegisterCommand registerCommand) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Presentation\Controllers\V1\AuthController.cs:line 106
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at AnyCodeHub.API.Middlewares.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context, RequestDelegate next) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.API\Middlewares\ExceptionHandlingMiddleware.cs:line 18
+2025-04-14 21:05:27.934 +07:00 [ERR] Error while registering user. 
+[ex=AnyCodeHub.Domain.Exceptions.RegisterException+EmailExistsException: Email [huatondat1621999@gmail.com] already exists.
+   at AnyCodeHub.Application.Usecases.V1.Commands.Authentication.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Usecases\V1\Commands\Authentication\RegisterCommandHandler.cs:line 37]
+2025-04-14 21:05:28.191 +07:00 [ERR] Email [huatondat1621999@gmail.com] already exists.
+AnyCodeHub.Domain.Exceptions.RegisterException+EmailExistsException: Email [huatondat1621999@gmail.com] already exists.
+   at AnyCodeHub.Application.Usecases.V1.Commands.Authentication.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Usecases\V1\Commands\Authentication\RegisterCommandHandler.cs:line 37
+   at AnyCodeHub.Application.Behaviors.TransactionPipelineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\TransactionPipelineBehavior.cs:line 50
+   at AnyCodeHub.Application.Behaviors.ValidationPipelineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\ValidationPipelineBehavior.cs:line 41
+   at AnyCodeHub.Application.Behaviors.PerformancePiplineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\PerformancePiplineBehavior.cs:line 19
+   at AnyCodeHub.Application.Behaviors.LoggingPiplineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\LoggingPiplineBehavior.cs:line 19
+   at AnyCodeHub.Presentation.Controllers.V1.AuthController.Register(RegisterCommand registerCommand) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Presentation\Controllers\V1\AuthController.cs:line 106
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at AnyCodeHub.API.Middlewares.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context, RequestDelegate next) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.API\Middlewares\ExceptionHandlingMiddleware.cs:line 18
+2025-04-14 21:05:28.676 +07:00 [ERR] Error while registering user. 
+[ex=AnyCodeHub.Domain.Exceptions.RegisterException+EmailExistsException: Email [huatondat1621999@gmail.com] already exists.
+   at AnyCodeHub.Application.Usecases.V1.Commands.Authentication.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Usecases\V1\Commands\Authentication\RegisterCommandHandler.cs:line 37]
+2025-04-14 21:05:28.923 +07:00 [ERR] Email [huatondat1621999@gmail.com] already exists.
+AnyCodeHub.Domain.Exceptions.RegisterException+EmailExistsException: Email [huatondat1621999@gmail.com] already exists.
+   at AnyCodeHub.Application.Usecases.V1.Commands.Authentication.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Usecases\V1\Commands\Authentication\RegisterCommandHandler.cs:line 37
+   at AnyCodeHub.Application.Behaviors.TransactionPipelineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\TransactionPipelineBehavior.cs:line 50
+   at AnyCodeHub.Application.Behaviors.ValidationPipelineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\ValidationPipelineBehavior.cs:line 41
+   at AnyCodeHub.Application.Behaviors.PerformancePiplineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\PerformancePiplineBehavior.cs:line 19
+   at AnyCodeHub.Application.Behaviors.LoggingPiplineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\LoggingPiplineBehavior.cs:line 19
+   at AnyCodeHub.Presentation.Controllers.V1.AuthController.Register(RegisterCommand registerCommand) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Presentation\Controllers\V1\AuthController.cs:line 106
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at AnyCodeHub.API.Middlewares.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context, RequestDelegate next) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.API\Middlewares\ExceptionHandlingMiddleware.cs:line 18
+2025-04-14 21:05:29.392 +07:00 [ERR] Error while registering user. 
+[ex=AnyCodeHub.Domain.Exceptions.RegisterException+EmailExistsException: Email [huatondat1621999@gmail.com] already exists.
+   at AnyCodeHub.Application.Usecases.V1.Commands.Authentication.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Usecases\V1\Commands\Authentication\RegisterCommandHandler.cs:line 37]
+2025-04-14 21:05:29.687 +07:00 [ERR] Email [huatondat1621999@gmail.com] already exists.
+AnyCodeHub.Domain.Exceptions.RegisterException+EmailExistsException: Email [huatondat1621999@gmail.com] already exists.
+   at AnyCodeHub.Application.Usecases.V1.Commands.Authentication.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Usecases\V1\Commands\Authentication\RegisterCommandHandler.cs:line 37
+   at AnyCodeHub.Application.Behaviors.TransactionPipelineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\TransactionPipelineBehavior.cs:line 50
+   at AnyCodeHub.Application.Behaviors.ValidationPipelineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\ValidationPipelineBehavior.cs:line 41
+   at AnyCodeHub.Application.Behaviors.PerformancePiplineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\PerformancePiplineBehavior.cs:line 19
+   at AnyCodeHub.Application.Behaviors.LoggingPiplineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\LoggingPiplineBehavior.cs:line 19
+   at AnyCodeHub.Presentation.Controllers.V1.AuthController.Register(RegisterCommand registerCommand) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Presentation\Controllers\V1\AuthController.cs:line 106
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at AnyCodeHub.API.Middlewares.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context, RequestDelegate next) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.API\Middlewares\ExceptionHandlingMiddleware.cs:line 18
+2025-04-14 21:09:27.960 +07:00 [ERR] Error while registering user. 
+[ex=AnyCodeHub.Domain.Exceptions.RegisterException+EmailExistsException: Email [huatondat1621999@gmail.com] already exists.
+   at AnyCodeHub.Application.Usecases.V1.Commands.Authentication.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Usecases\V1\Commands\Authentication\RegisterCommandHandler.cs:line 37]
+2025-04-14 21:09:28.428 +07:00 [ERR] Email [huatondat1621999@gmail.com] already exists.
+AnyCodeHub.Domain.Exceptions.RegisterException+EmailExistsException: Email [huatondat1621999@gmail.com] already exists.
+   at AnyCodeHub.Application.Usecases.V1.Commands.Authentication.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Usecases\V1\Commands\Authentication\RegisterCommandHandler.cs:line 37
+   at AnyCodeHub.Application.Behaviors.TransactionPipelineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\TransactionPipelineBehavior.cs:line 50
+   at AnyCodeHub.Application.Behaviors.ValidationPipelineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\ValidationPipelineBehavior.cs:line 41
+   at AnyCodeHub.Application.Behaviors.PerformancePiplineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\PerformancePiplineBehavior.cs:line 19
+   at AnyCodeHub.Application.Behaviors.LoggingPiplineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\LoggingPiplineBehavior.cs:line 19
+   at AnyCodeHub.Presentation.Controllers.V1.AuthController.Register(RegisterCommand registerCommand) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Presentation\Controllers\V1\AuthController.cs:line 106
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at AnyCodeHub.API.Middlewares.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context, RequestDelegate next) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.API\Middlewares\ExceptionHandlingMiddleware.cs:line 18
+2025-04-14 21:20:20.582 +07:00 [ERR] Error while logging. 
+[Exception=AnyCodeHub.Domain.Exceptions.UserException+DeactiveUserException: Email [huatondat1621999@gmail.com] has been deactive
+   at AnyCodeHub.Persistence.Repository.UserRepository.GetByEmail(String Email) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Persistence\Repository\UserRepository.cs:line 26
+   at AnyCodeHub.Persistence.Repository.UserRepository.GetRoleByEmail(String Email) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Persistence\Repository\UserRepository.cs:line 45
+   at AnyCodeHub.Application.Usecases.V1.Queries.Authentication.GetLoginQueryHandler.Handle(Login request, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Usecases\V1\Queries\Authentication\GetLoginQueryHandler.cs:line 45]
+2025-04-14 21:20:20.938 +07:00 [ERR] Email [huatondat1621999@gmail.com] has been deactive
+AnyCodeHub.Domain.Exceptions.UserException+DeactiveUserException: Email [huatondat1621999@gmail.com] has been deactive
+   at AnyCodeHub.Persistence.Repository.UserRepository.GetByEmail(String Email) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Persistence\Repository\UserRepository.cs:line 26
+   at AnyCodeHub.Persistence.Repository.UserRepository.GetRoleByEmail(String Email) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Persistence\Repository\UserRepository.cs:line 45
+   at AnyCodeHub.Application.Usecases.V1.Queries.Authentication.GetLoginQueryHandler.Handle(Login request, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Usecases\V1\Queries\Authentication\GetLoginQueryHandler.cs:line 45
+   at AnyCodeHub.Application.Usecases.V1.Queries.Authentication.GetLoginQueryHandler.Handle(Login request, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Usecases\V1\Queries\Authentication\GetLoginQueryHandler.cs:line 112
+   at AnyCodeHub.Application.Behaviors.TransactionPipelineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\TransactionPipelineBehavior.cs:line 27
+   at AnyCodeHub.Application.Behaviors.ValidationPipelineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\ValidationPipelineBehavior.cs:line 41
+   at AnyCodeHub.Application.Behaviors.PerformancePiplineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\PerformancePiplineBehavior.cs:line 19
+   at AnyCodeHub.Application.Behaviors.LoggingPiplineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\LoggingPiplineBehavior.cs:line 19
+   at AnyCodeHub.Presentation.Controllers.V1.AuthController.Login(Login loginQuery) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Presentation\Controllers\V1\AuthController.cs:line 29
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at AnyCodeHub.API.Middlewares.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context, RequestDelegate next) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.API\Middlewares\ExceptionHandlingMiddleware.cs:line 18
+2025-04-14 21:20:30.169 +07:00 [ERR] Error while logging. 
+[Exception=AnyCodeHub.Domain.Exceptions.UserException+DeactiveUserException: Email [huatondat1621999@gmail.com] has been deactive
+   at AnyCodeHub.Persistence.Repository.UserRepository.GetByEmail(String Email) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Persistence\Repository\UserRepository.cs:line 26
+   at AnyCodeHub.Persistence.Repository.UserRepository.GetRoleByEmail(String Email) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Persistence\Repository\UserRepository.cs:line 45
+   at AnyCodeHub.Application.Usecases.V1.Queries.Authentication.GetLoginQueryHandler.Handle(Login request, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Usecases\V1\Queries\Authentication\GetLoginQueryHandler.cs:line 45]
+2025-04-14 21:20:30.521 +07:00 [ERR] Email [huatondat1621999@gmail.com] has been deactive
+AnyCodeHub.Domain.Exceptions.UserException+DeactiveUserException: Email [huatondat1621999@gmail.com] has been deactive
+   at AnyCodeHub.Persistence.Repository.UserRepository.GetByEmail(String Email) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Persistence\Repository\UserRepository.cs:line 26
+   at AnyCodeHub.Persistence.Repository.UserRepository.GetRoleByEmail(String Email) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Persistence\Repository\UserRepository.cs:line 45
+   at AnyCodeHub.Application.Usecases.V1.Queries.Authentication.GetLoginQueryHandler.Handle(Login request, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Usecases\V1\Queries\Authentication\GetLoginQueryHandler.cs:line 45
+   at AnyCodeHub.Application.Usecases.V1.Queries.Authentication.GetLoginQueryHandler.Handle(Login request, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Usecases\V1\Queries\Authentication\GetLoginQueryHandler.cs:line 112
+   at AnyCodeHub.Application.Behaviors.TransactionPipelineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\TransactionPipelineBehavior.cs:line 27
+   at AnyCodeHub.Application.Behaviors.ValidationPipelineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\ValidationPipelineBehavior.cs:line 41
+   at AnyCodeHub.Application.Behaviors.PerformancePiplineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\PerformancePiplineBehavior.cs:line 19
+   at AnyCodeHub.Application.Behaviors.LoggingPiplineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\LoggingPiplineBehavior.cs:line 19
+   at AnyCodeHub.Presentation.Controllers.V1.AuthController.Login(Login loginQuery) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Presentation\Controllers\V1\AuthController.cs:line 29
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at AnyCodeHub.API.Middlewares.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context, RequestDelegate next) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.API\Middlewares\ExceptionHandlingMiddleware.cs:line 18
+2025-04-14 21:21:51.602 +07:00 [ERR] Error while logging. 
+[Exception=AnyCodeHub.Domain.Exceptions.UserException+DeactiveUserException: Email [huatondat1621999@gmail.com] has been deactivated or verified yet.
+   at AnyCodeHub.Persistence.Repository.UserRepository.GetByEmail(String Email) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Persistence\Repository\UserRepository.cs:line 26
+   at AnyCodeHub.Persistence.Repository.UserRepository.GetRoleByEmail(String Email) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Persistence\Repository\UserRepository.cs:line 45
+   at AnyCodeHub.Application.Usecases.V1.Queries.Authentication.GetLoginQueryHandler.Handle(Login request, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Usecases\V1\Queries\Authentication\GetLoginQueryHandler.cs:line 45]
+2025-04-14 21:21:51.996 +07:00 [ERR] Email [huatondat1621999@gmail.com] has been deactivated or verified yet.
+AnyCodeHub.Domain.Exceptions.UserException+DeactiveUserException: Email [huatondat1621999@gmail.com] has been deactivated or verified yet.
+   at AnyCodeHub.Persistence.Repository.UserRepository.GetByEmail(String Email) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Persistence\Repository\UserRepository.cs:line 26
+   at AnyCodeHub.Persistence.Repository.UserRepository.GetRoleByEmail(String Email) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Persistence\Repository\UserRepository.cs:line 45
+   at AnyCodeHub.Application.Usecases.V1.Queries.Authentication.GetLoginQueryHandler.Handle(Login request, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Usecases\V1\Queries\Authentication\GetLoginQueryHandler.cs:line 45
+   at AnyCodeHub.Application.Usecases.V1.Queries.Authentication.GetLoginQueryHandler.Handle(Login request, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Usecases\V1\Queries\Authentication\GetLoginQueryHandler.cs:line 112
+   at AnyCodeHub.Application.Behaviors.TransactionPipelineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\TransactionPipelineBehavior.cs:line 27
+   at AnyCodeHub.Application.Behaviors.ValidationPipelineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\ValidationPipelineBehavior.cs:line 41
+   at AnyCodeHub.Application.Behaviors.PerformancePiplineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\PerformancePiplineBehavior.cs:line 19
+   at AnyCodeHub.Application.Behaviors.LoggingPiplineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\LoggingPiplineBehavior.cs:line 19
+   at AnyCodeHub.Presentation.Controllers.V1.AuthController.Login(Login loginQuery) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Presentation\Controllers\V1\AuthController.cs:line 29
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at AnyCodeHub.API.Middlewares.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context, RequestDelegate next) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.API\Middlewares\ExceptionHandlingMiddleware.cs:line 18
+2025-04-14 21:35:50.666 +07:00 [ERR] Error while registering user. 
+[ex=System.InvalidOperationException: Cannot generate Url outside of an Http context.
+   at AnyCodeHub.Infrastructure.Services.UrlHelperService.GenerateMailConfirmationLink(String Email, String Token, String CallbackUrl) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Infrastructure\Services\UrlHelperService.cs:line 23
+   at AnyCodeHub.Application.Usecases.V1.Commands.Authentication.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Usecases\V1\Commands\Authentication\RegisterCommandHandler.cs:line 56]
+2025-04-14 21:35:50.825 +07:00 [ERR] Cannot generate Url outside of an Http context.
+System.InvalidOperationException: Cannot generate Url outside of an Http context.
+   at AnyCodeHub.Infrastructure.Services.UrlHelperService.GenerateMailConfirmationLink(String Email, String Token, String CallbackUrl) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Infrastructure\Services\UrlHelperService.cs:line 23
+   at AnyCodeHub.Application.Usecases.V1.Commands.Authentication.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Usecases\V1\Commands\Authentication\RegisterCommandHandler.cs:line 56
+   at AnyCodeHub.Application.Behaviors.TransactionPipelineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\TransactionPipelineBehavior.cs:line 50
+   at AnyCodeHub.Application.Behaviors.ValidationPipelineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\ValidationPipelineBehavior.cs:line 41
+   at AnyCodeHub.Application.Behaviors.PerformancePiplineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\PerformancePiplineBehavior.cs:line 19
+   at AnyCodeHub.Application.Behaviors.LoggingPiplineBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Application\Behaviors\LoggingPiplineBehavior.cs:line 19
+   at AnyCodeHub.Presentation.Controllers.V1.AuthController.Register(RegisterCommand registerCommand) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.Presentation\Controllers\V1\AuthController.cs:line 106
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at AnyCodeHub.API.Middlewares.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context, RequestDelegate next) in D:\DevPrograms\Gits\AnyCodeHub-API\AnyCodeHub\src\AnyCodeHub.API\Middlewares\ExceptionHandlingMiddleware.cs:line 18

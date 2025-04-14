@@ -11,7 +11,7 @@ public static class UserException
 
     public class DeactiveUserException : Exception
     {
-        public DeactiveUserException(string Email) : base($"Email [{Email}] has been deactive")
+        public DeactiveUserException(string Email) : base($"Email [{Email}] has been deactivated or verified yet.")
         {
 
         }

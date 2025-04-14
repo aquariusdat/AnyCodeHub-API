@@ -20,14 +20,14 @@ namespace AnyCodeHub.Presentation.Controllers.V1
         [HttpGet("confirm-email")]
         [ProducesResponseType(typeof(Result<Contract.Services.V1.Authentication.Response.AuthenticatedResponse>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> User(string Email, string Token)
+        public async Task<IActionResult> User(string Email, string Token, string CallbackUrl)
         {
             var result = await _sender.Send(new Query.ConfirmEmailQuery(Email, Token));
 
             if (result.IsFailure)
                 return HandlerFailure(result);
 
-            return Ok(result);
+            return Redirect(CallbackUrl);
         }
     }
 }
