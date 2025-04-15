@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Reflection;
 using static AnyCodeHub.Contract.Services.V1.Authentication.Query;
+using static MassTransit.ValidationResultExtensions;
 
 namespace AnyCodeHub.Presentation.Controllers.V1;
 
@@ -77,6 +78,24 @@ public class AuthController : ApiController
         //Response.Cookies.Append("X-USER-DATA", JsonConvert.SerializeObject(result.Value.PersonalInformation));
     }
 
+    private void RemoveTokenFromCookies()
+    {
+        Response.Cookies.Append("X-ACCESS-TOKEN", string.Empty, new CookieOptions
+        {
+            Expires = DateTime.Now.AddDays(-99),
+            HttpOnly = true,
+            Secure = false,
+            SameSite = SameSiteMode.Strict,
+        });
+        Response.Cookies.Append("X-REFRESH-TOKEN", string.Empty, new CookieOptions
+        {
+            Expires = DateTime.Now.AddDays(-99),
+            HttpOnly = true,
+            Secure = false,
+            SameSite = SameSiteMode.Strict,
+        });
+    }
+
     [Authorize]
     [HttpPost("RevokeToken")]
     [ProducesResponseType(typeof(Result<bool>), StatusCodes.Status200OK)]
@@ -125,5 +144,15 @@ public class AuthController : ApiController
             return HandlerFailure(result);
 
         return Ok(result);
+    }
+
+    [AllowAnonymous]
+    [HttpPost("log-out")]
+    [ProducesResponseType(typeof(Result<bool>), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> Logout()
+    {
+        RemoveTokenFromCookies();
+        return Ok();
     }
 }
