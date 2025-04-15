@@ -15,6 +15,8 @@ using Microsoft.AspNetCore.Builder;
 using AnyCodeHub.Application.Mappers;
 using System.Text;
 using AnyCodeHub.Application.DependencyInjections.Options;
+using AnyCodeHub.Application.Services;
+using AnyCodeHub.Application.Abstractions;
 
 namespace AnyCodeHub.Application.DependencyInjections.Extensions;
 public static class ServiceCollectionExtenions
@@ -100,6 +102,9 @@ public static class ServiceCollectionExtenions
 
         var encryptOptions = configuration.GetSection("EncryptOptions").Get<EncryptOptions>();
         services.AddSingleton(encryptOptions);
+
+        var googleApiOptions = configuration.GetSection("GoogleApi").Get<GoogleApiOptions>();
+        services.AddSingleton(googleApiOptions);
 
         //var googleApiOptions = configuration.GetSection("GoogleApi").Get<GoogleApiOptions>();
         //services.AddSingleton(googleApiOptions);
@@ -236,7 +241,7 @@ public static class ServiceCollectionExtenions
     public static void AddAuthenServices(this IServiceCollection services)
     {
         services.AddTransient<ITokenGeneratorService, TokenGeneratorService>();
-        //services.AddTransient<IOAuthGoogleService, OAuthGoogleService>();
+        services.AddTransient<IOAuthGoogleService, OAuthGoogleService>();
         services.AddScoped<CustomJwtBearerEvents>();
         services.AddHttpClient();
     }

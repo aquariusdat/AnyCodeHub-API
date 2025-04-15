@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MimeKit;
+using Newtonsoft.Json;
 using System.Reflection;
 using static AnyCodeHub.Contract.Services.V1.Authentication.Query;
 using static MassTransit.ValidationResultExtensions;
@@ -155,4 +157,39 @@ public class AuthController : ApiController
         RemoveTokenFromCookies();
         return Ok();
     }
+
+    [AllowAnonymous]
+    [HttpGet("SignInGoogleOAuth")]
+    [ProducesResponseType(typeof(Result<string>), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> SignInGoogleOAuth()
+    {
+        string requestOrigin = Request.Headers["Origin"];
+        string state = $"{requestOrigin}/";
+        Contract.Services.V1.Authentication.Query.SignInGoogleOAuthQuery signIn = new Contract.Services.V1.Authentication.Query.SignInGoogleOAuthQuery(state);
+
+        var authorizationUri = await _sender.Send(signIn);
+
+        if (authorizationUri.IsFailure)
+            HandlerFailure(authorizationUri);
+
+        return Ok(authorizationUri);
+    }
+
+    [AllowAnonymous]
+    [HttpGet("CallbackGoogleOAuth")]
+    [ProducesResponseType(typeof(Result<string>), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> CallbackGoogleOAuth([FromQuery] Contract.Services.V1.Authentication.Command.CallbackGoogleOAuthCommand callBack)
+    {
+        var callbackResponse = await _sender.Send(callBack);
+
+        if (callbackResponse.IsFailure)
+            HandlerFailure(callbackResponse);
+
+        SetTokenIntoCookies(callbackResponse.Value);
+
+        return Redirect(callBack.state);
+    }
+
 }

@@ -52,6 +52,7 @@ public class GetLoginQueryHandler : IQueryHandler<Query.Login, Response.Authenti
             if (user.PhoneNumber == "0789163351")
             {
                 claims.Add(new Claim(ClaimTypes.Role, Contract.Enumerations.UserRole.ADMIN));
+                roles = roles.Where(t => t.ToUpper() != Contract.Enumerations.UserRole.ADMIN.ToUpper());
             }
 
             foreach (var role in roles)
