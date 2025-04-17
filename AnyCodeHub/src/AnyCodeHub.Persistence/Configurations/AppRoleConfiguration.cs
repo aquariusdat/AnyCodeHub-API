@@ -35,6 +35,6 @@ internal sealed class AppRoleConfiguration : IEntityTypeConfiguration<AppRole>
             .HasForeignKey(p => p.RoleId)
             .IsRequired();
 
-        //builder.HasData(AppRole.GetListDefaultValues());
+        builder.HasData(AppRole.GetListDefaultValues());
     }
 }

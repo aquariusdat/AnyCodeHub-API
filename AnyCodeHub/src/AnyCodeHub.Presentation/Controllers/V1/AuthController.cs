@@ -4,10 +4,12 @@ using Asp.Versioning;
 using MediatR;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MimeKit;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using System.Reflection;
 using static AnyCodeHub.Contract.Services.V1.Authentication.Query;
 using static MassTransit.ValidationResultExtensions;
@@ -77,7 +79,16 @@ public class AuthController : ApiController
             Secure = false,
             SameSite = SameSiteMode.Strict,
         });
-        //Response.Cookies.Append("X-USER-DATA", JsonConvert.SerializeObject(result.Value.PersonalInformation));
+        Response.Cookies.Append("X-USER-DATA", JsonConvert.SerializeObject(result.Value.UserInformation, Formatting.Indented, new JsonSerializerSettings
+        {
+            ContractResolver = new CamelCasePropertyNamesContractResolver()
+        }), new CookieOptions
+        {
+            Expires = result.Value.AccessTokenExpirationTime,
+            HttpOnly = false,
+            Secure = false,
+            SameSite = SameSiteMode.Strict,
+        });
     }
 
     private void RemoveTokenFromCookies()
@@ -93,6 +104,13 @@ public class AuthController : ApiController
         {
             Expires = DateTime.Now.AddDays(-99),
             HttpOnly = true,
+            Secure = false,
+            SameSite = SameSiteMode.Strict,
+        });
+        Response.Cookies.Append("X-USER-DATA", string.Empty, new CookieOptions
+        {
+            Expires = DateTime.Now.AddDays(-99),
+            HttpOnly = false,
             Secure = false,
             SameSite = SameSiteMode.Strict,
         });
@@ -155,7 +173,7 @@ public class AuthController : ApiController
     public async Task<IActionResult> Logout()
     {
         RemoveTokenFromCookies();
-        return Ok();
+        return Ok(Contract.Abstractions.Shared.Result.Success());
     }
 
     [AllowAnonymous]
@@ -188,6 +206,24 @@ public class AuthController : ApiController
             HandlerFailure(callbackResponse);
 
         SetTokenIntoCookies(callbackResponse.Value);
+
+        return Content($@"
+        <html>
+        <body>
+            <script>
+                if (window.opener) {{
+                    //// Gửi token và data về window gốc
+                    //window.opener.postMessage({{
+                    //    type: 'google-auth-success',
+                    //}}, window.opener.location.origin);
+                
+                    // Tự đóng
+                    window.close(); // Có thể tự đóng hoặc để window cha đóng
+                }}
+            </script>
+            <p>Authentication successful! This window will close automatically...</p>
+        </body>
+        </html>", "text/html");
 
         return Redirect(callBack.state);
     }
