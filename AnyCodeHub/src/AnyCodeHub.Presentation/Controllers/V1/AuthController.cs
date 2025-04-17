@@ -12,6 +12,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using System.Reflection;
 using static AnyCodeHub.Contract.Services.V1.Authentication.Query;
+using static AnyCodeHub.Domain.Exceptions.IdentityException;
 using static MassTransit.ValidationResultExtensions;
 
 namespace AnyCodeHub.Presentation.Controllers.V1;
@@ -45,24 +46,32 @@ public class AuthController : ApiController
     [HttpPost("Token")]
     [ProducesResponseType(typeof(Result<Contract.Services.V1.Authentication.Response.AuthenticatedResponse>), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<IActionResult> Token([FromBody] Contract.Services.V1.Authentication.Query.Token tokenQuery)
+    public async Task<IActionResult> Token()
     {
         //var accessToken = await HttpContext.GetTokenAsync("access_token");
         //if (!string.IsNullOrEmpty(accessToken))
         //{
         //    tokenQuery.AccessToken = accessToken.ToString();
         //}
+        try
+        {
+            var result = await _sender.Send(new Token() { RefreshToken = HttpContext.Request.Cookies["X-REFRESH-TOKEN"].ToString() });
 
-        tokenQuery.RefreshToken = HttpContext.Request.Cookies["X-REFRESH-TOKEN"].ToString();
+            if (result.IsFailure)
+                return HandlerFailure(result);
 
-        var result = await _sender.Send(tokenQuery);
+            SetTokenIntoCookies(result);
 
-        if (result.IsFailure)
-            return HandlerFailure(result);
-
-        SetTokenIntoCookies(result);
-
-        return Ok(result);
+            return Ok(result);
+        }
+        catch(Exception ex)
+        {
+            if(ex is TokenException)
+            {
+                RemoveTokenFromCookies();
+            }
+            throw;
+        }
     }
 
     private void SetTokenIntoCookies(Result<Contract.Services.V1.Authentication.Response.AuthenticatedResponse> result)

@@ -127,9 +127,9 @@ public class TokenGeneratorService : ITokenGeneratorService
         return (AccessToken: new JwtSecurityTokenHandler().WriteToken(token), ExpireTime: expireTime);
     }
 
-    public async Task<ClaimsPrincipal?> GetPrincipalFromExpiredToken(string token)
+    public async Task<ClaimsPrincipal?> GetPrincipalFromExpiredToken(string token, bool isRefreshToken = false)
     {
-        var secretKeys = Encoding.UTF8.GetBytes(_jwtOptions.SecretKey);
+        var secretKeys = Encoding.UTF8.GetBytes(!isRefreshToken ? _jwtOptions.SecretKey : _jwtOptions.SecretRefreshKey);
 
 
         var tokenValidationParameters = new TokenValidationParameters

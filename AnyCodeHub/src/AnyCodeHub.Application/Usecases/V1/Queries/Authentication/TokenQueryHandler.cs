@@ -43,7 +43,7 @@ public class TokenQueryHandler : IQueryHandler<Query.Token, Response.Authenticat
         try
         {
             // Get principal from token
-            var principal = await _tokenGeneratorService.GetPrincipalFromExpiredToken(request.RefreshToken);
+            var principal = await _tokenGeneratorService.GetPrincipalFromExpiredToken(request.RefreshToken, true);
             if (principal is null || !principal.Claims.Any(t => t.Type == ClaimTypes.Email))
             {
                 throw new TokenException("Invalid access token.");
