@@ -5,7 +5,7 @@ namespace AnyCodeHub.Contract.Services.V1.Authentication
 {
     public static class Command
     {
-        public record RegisterCommand(string FirstName, string LastName, DateTime? BirthOfDate, string Email, string Password, string PasswordConfirmed, string PhoneNumber) : ICommand<bool>;
+        public record RegisterCommand(string FirstName, string LastName, DateTime? BirthOfDate, string Email, string Password, string PasswordConfirmed, string PhoneNumber, List<string> Roles) : ICommand<bool>;
         public record CallbackGoogleOAuthCommand(string code, string scope, string state) : ICommand<AuthenticatedResponse>;
         public record RevokeTokenCommand : ICommand<bool>
         {

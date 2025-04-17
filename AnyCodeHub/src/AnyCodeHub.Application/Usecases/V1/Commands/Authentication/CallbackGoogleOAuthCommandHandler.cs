@@ -4,12 +4,14 @@ using AnyCodeHub.Application.Abstractions;
 using AnyCodeHub.Contract.Abstractions.Message;
 using AnyCodeHub.Contract.Abstractions.Shared;
 using AnyCodeHub.Contract.CommonServices;
+using AnyCodeHub.Contract.Enumerations;
 using AnyCodeHub.Contract.Extensions;
 using AnyCodeHub.Domain.Abstractions.Repositories;
 using AnyCodeHub.Domain.Entities.Identity;
 using AnyCodeHub.Infrastructure.Auth.Abstractions;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
+using Microsoft.Win32;
 using System.Security.Claims;
 using static AnyCodeHub.Contract.Services.V1.Authentication.Command;
 using static AnyCodeHub.Contract.Services.V1.Authentication.Response;
@@ -69,7 +71,6 @@ public class CallbackGoogleOAuthCommandHandler : ICommandHandler<CallbackGoogleO
                 await _userManager.CreateAsync(account);
 
                 await _userManager.AddToRoleAsync(account, account.IsAdmin ? Contract.Enumerations.UserRole.ADMIN : Contract.Enumerations.UserRole.USER);
-
             }
 
             #region Get roles of user
@@ -94,7 +95,7 @@ public class CallbackGoogleOAuthCommandHandler : ICommandHandler<CallbackGoogleO
 
             #region Generate Jwt Token
             var resAccessTokenGenerate = await _tokenGeneratorService.GenerateAccessToken(claims);
-            var resRefreshTokenGenerate = await _tokenGeneratorService.GenerateRefreshToken();
+            var resRefreshTokenGenerate = await _tokenGeneratorService.GenerateRefreshToken(claims);
 
             var authenticatedResponse = new Contract.Services.V1.Authentication.Response.AuthenticatedResponse()
             {
@@ -108,7 +109,8 @@ public class CallbackGoogleOAuthCommandHandler : ICommandHandler<CallbackGoogleO
                     LastName = account.LastName,
                     BirthOfDate = account.BirthOfDate,
                     Email = account.Email,
-                    PhoneNumber = account.PhoneNumber
+                    PhoneNumber = account.PhoneNumber,
+                    Roles = roles
                 }
             };
 

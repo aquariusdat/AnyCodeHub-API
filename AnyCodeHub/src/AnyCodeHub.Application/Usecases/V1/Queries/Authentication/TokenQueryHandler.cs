@@ -43,7 +43,7 @@ public class TokenQueryHandler : IQueryHandler<Query.Token, Response.Authenticat
         try
         {
             // Get principal from token
-            var principal = await _tokenGeneratorService.GetPrincipalFromExpiredToken(request.AccessToken);
+            var principal = await _tokenGeneratorService.GetPrincipalFromExpiredToken(request.RefreshToken);
             if (principal is null || !principal.Claims.Any(t => t.Type == ClaimTypes.Email))
             {
                 throw new TokenException("Invalid access token.");
@@ -62,9 +62,11 @@ public class TokenQueryHandler : IQueryHandler<Query.Token, Response.Authenticat
             // Check user
             var loginUser = await _userRepository.GetByEmail(email);
 
+            var roles = await _userRepository.GetRoleByEmail(email);
+
             // Generate Jwt Token
             var resAccessTokenGenerate = await _tokenGeneratorService.GenerateAccessToken(principal.Claims);
-            var resRefreshTokenGenerate = await _tokenGeneratorService.GenerateRefreshToken();
+            var resRefreshTokenGenerate = await _tokenGeneratorService.GenerateRefreshToken(principal.Claims);
 
             var response = new Response.AuthenticatedResponse()
             {
@@ -78,6 +80,7 @@ public class TokenQueryHandler : IQueryHandler<Query.Token, Response.Authenticat
                     LastName = loginUser.LastName,
                     BirthOfDate = loginUser.BirthOfDate,
                     Email = loginUser.Email,
+                    Roles = roles
                 }
             };
 

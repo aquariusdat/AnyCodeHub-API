@@ -8,7 +8,6 @@ public static class Query
     public record SignInGoogleOAuthQuery(string state) : IQuery<string>;
     public record Token() : IQuery<Response.AuthenticatedResponse>
     {
-        public string AccessToken { get; set; }
         public string RefreshToken { get; set; }
     }
 

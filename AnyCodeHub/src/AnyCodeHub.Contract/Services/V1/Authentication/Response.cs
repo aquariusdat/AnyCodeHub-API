@@ -19,5 +19,6 @@ public static class Response
         public DateTime? BirthOfDate { get; set; }
         public string? PhoneNumber { get; set; }
         public string Email { get; set; }
+        public IEnumerable<string> Roles { get; set; }
     }
 }

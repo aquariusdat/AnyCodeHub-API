@@ -47,11 +47,13 @@ public class AuthController : ApiController
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> Token([FromBody] Contract.Services.V1.Authentication.Query.Token tokenQuery)
     {
-        var accessToken = await HttpContext.GetTokenAsync("access_token");
-        if (!string.IsNullOrEmpty(accessToken))
-        {
-            tokenQuery.AccessToken = accessToken.ToString();
-        }
+        //var accessToken = await HttpContext.GetTokenAsync("access_token");
+        //if (!string.IsNullOrEmpty(accessToken))
+        //{
+        //    tokenQuery.AccessToken = accessToken.ToString();
+        //}
+
+        tokenQuery.RefreshToken = HttpContext.Request.Cookies["X-REFRESH-TOKEN"].ToString();
 
         var result = await _sender.Send(tokenQuery);
 

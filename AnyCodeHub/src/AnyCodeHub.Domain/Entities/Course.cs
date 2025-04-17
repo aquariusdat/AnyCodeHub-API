@@ -9,6 +9,19 @@ namespace AnyCodeHub.Domain.Entities;
 
 public class Course : AggregateRoot<Guid>, IBaseAuditEntity
 {
+    private readonly static List<Course> _listDefaultRoles = new List<Course>() {
+            new Course()
+            {
+                AuthorId = Guid.NewGuid(),
+                
+            }
+        };
+
+    public static List<Course> GetListDefaultValues()
+    {
+        return _listDefaultRoles;
+    }
+
     private Course()
     {
         // Initialize collections to prevent null reference exceptions

@@ -95,14 +95,36 @@ public class TokenGeneratorService : ITokenGeneratorService
     //    }
     //}
 
-    public async Task<(string RefreshToken, DateTime ExpireTime)> GenerateRefreshToken()
+    public async Task<(string RefreshToken, DateTime ExpireTime)> GenerateRefreshToken(IEnumerable<Claim> claims)
     {
-        var randomNumber = new byte[32];
-        using (var rng = RandomNumberGenerator.Create())
-        {
-            rng.GetBytes(randomNumber);
-            return (RefreshToken: Convert.ToBase64String(randomNumber), ExpireTime: DateTime.Now.AddDays(_jwtOptions.RefreshTokenValidityInDays));
-        }
+        //var randomNumber = new byte[32];
+        //using (var rng = RandomNumberGenerator.Create())
+        //{
+        //    rng.GetBytes(randomNumber);
+        //    return (RefreshToken: Convert.ToBase64String(randomNumber), ExpireTime: DateTime.Now.AddDays(_jwtOptions.RefreshTokenValidityInDays));
+        //}
+
+        #region Signing without RSA
+        var keyBytes = Encoding.UTF8.GetBytes(_jwtOptions.SecretRefreshKey);
+        var symmetricKey = new SymmetricSecurityKey(keyBytes);
+        var signingCredentials = new SigningCredentials(symmetricKey, SecurityAlgorithms.HmacSha256);
+        #endregion
+
+        #region Signing with RSA
+        //RsaSecurityKey rsaSecurityKey = GetRSAKey();
+        //var signingCred = new SigningCredentials(rsaSecurityKey, SecurityAlgorithms.RsaSha256);
+        #endregion
+
+        DateTime expireTime = DateTime.Now.AddDays(_jwtOptions.RefreshTokenValidityInDays);
+        var token = new JwtSecurityToken(
+                issuer: _jwtOptions.Issuer,
+                audience: _jwtOptions.Audience,
+                signingCredentials: signingCredentials, // Signing without RSA
+                                                        //signingCredentials: signingCred,
+                claims: claims,
+                expires: expireTime
+            );
+        return (AccessToken: new JwtSecurityTokenHandler().WriteToken(token), ExpireTime: expireTime);
     }
 
     public async Task<ClaimsPrincipal?> GetPrincipalFromExpiredToken(string token)

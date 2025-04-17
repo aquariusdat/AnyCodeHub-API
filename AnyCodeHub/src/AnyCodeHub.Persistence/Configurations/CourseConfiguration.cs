@@ -105,6 +105,8 @@ namespace AnyCodeHub.Persistence.Configurations
                 .WithOne()
                 .HasForeignKey(cs => cs.CourseId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            //builder.HasData(Domain.Entities.Course.GetListDefaultValues());
         }
     }
 }

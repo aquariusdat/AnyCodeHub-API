@@ -62,7 +62,7 @@ public class GetLoginQueryHandler : IQueryHandler<Query.Login, Response.Authenti
             #endregion
 
             var resAccessTokenGenerate = await _tokenGeneratorService.GenerateAccessToken(claims);
-            var resRefreshTokenGenerate = await _tokenGeneratorService.GenerateRefreshToken();
+            var resRefreshTokenGenerate = await _tokenGeneratorService.GenerateRefreshToken(claims);
 
             var response = new Response.AuthenticatedResponse()
             {
@@ -77,7 +77,8 @@ public class GetLoginQueryHandler : IQueryHandler<Query.Login, Response.Authenti
                     BirthOfDate = user.BirthOfDate,
                     PhoneNumber = user.PhoneNumber,
                     Email = user.Email,
-                }
+                    Roles = roles
+                },
             };
 
             await _cachingService.SetAsync($"{Contract.Enumerations.CachingPrefixKey.AuthenticatedResponseByUser}_{request.Email}", response, cancellationToken);

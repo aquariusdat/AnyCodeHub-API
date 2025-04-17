@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using AnyCodeHub.Contract.Services.V1.Course;
 using static AnyCodeHub.Contract.Services.V1.Course.Response;
 using AnyCodeHub.Contract.Extensions;
+using AnyCodeHub.Contract.DTOs.Course;
+using static AnyCodeHub.Contract.Services.V1.Course.Command;
 
 namespace AnyCodeHub.Presentation.Controllers.V1;
 
@@ -45,7 +47,7 @@ public class CourseController : ApiController
     [HttpPost(Name = "CreateCourse")]
     [ProducesResponseType(typeof(Result<CourseResponse>), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<IActionResult> Courses([FromBody] Command.CreateCourseCommand request)
+    public async Task<IActionResult> Courses([FromBody] CreateCourseCommand request)
     {
         var result = await _sender.Send(request);
 

@@ -2,6 +2,7 @@
 using AnyCodeHub.Contract.Abstractions.Services;
 using AnyCodeHub.Contract.Abstractions.Shared;
 using AnyCodeHub.Contract.CommonServices;
+using AnyCodeHub.Contract.Enumerations;
 using AnyCodeHub.Domain.Entities.Identity;
 using AnyCodeHub.Domain.Exceptions;
 using AutoMapper;
@@ -9,6 +10,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using System.Data;
 using System.Text.RegularExpressions;
 using System.Web;
 using static AnyCodeHub.Contract.Services.V1.Authentication.Command;
@@ -41,7 +43,7 @@ public class RegisterCommandHandler : ICommandHandler<RegisterCommand, bool>
             if (isExisted != null) throw new RegisterException.EmailExistsException(request.Email);
 
             AppUser register = _mapper.Map<AppUser>(request);
-            register.IsAdmin = request.PhoneNumber == "0789163351";
+            register.IsAdmin = request.Roles?.Any(t => t.ToUpper() == UserRole.ADMIN) ?? false;
             register.PasswordHash = request.Password.HashPasswordWithBCrypt();
             register.UserName = Regex.Match(register.Email, @"^[^@]+").Value;
 
@@ -49,6 +51,15 @@ public class RegisterCommandHandler : ICommandHandler<RegisterCommand, bool>
 
             if (result.Succeeded)
             {
+                if(request.Roles?.Count() > 0)
+                {
+                    await _userManager.AddToRolesAsync(register, request.Roles);
+                }
+                else
+                {
+                    await _userManager.AddToRoleAsync(register, UserRole.USER);
+                }
+
                 var clientUrl = _contextAccessor.HttpContext.Request.Headers["Referer"].ToString();
                 if (string.IsNullOrEmpty(clientUrl))
                 {
