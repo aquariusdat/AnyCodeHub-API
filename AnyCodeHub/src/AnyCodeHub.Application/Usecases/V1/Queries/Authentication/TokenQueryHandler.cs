@@ -44,10 +44,7 @@ public class TokenQueryHandler : IQueryHandler<Query.Token, Response.Authenticat
         {
             // Get principal from token
             var principal = await _tokenGeneratorService.GetPrincipalFromExpiredToken(request.RefreshToken, true);
-            if (principal is null || !principal.Claims.Any(t => t.Type == ClaimTypes.Email))
-            {
-                throw new TokenException("Invalid access token.");
-            }
+            if (principal is null || !principal.Claims.Any(t => t.Type == ClaimTypes.Email)) throw new TokenException("Invalid access token.");
 
             email = principal.FindFirstValue(JwtRegisteredClaimNames.Email) ?? principal.FindFirstValue(ClaimTypes.Email);
 
@@ -116,11 +113,15 @@ public class TokenQueryHandler : IQueryHandler<Query.Token, Response.Authenticat
         var cancellationTokenSource = new CancellationTokenSource(TimeSpan.FromSeconds(30));
         string keyCache = $"TOKEN_NOTEXPIREYET_{Email}_{RefreshToken}";
 
-        long utcExpireDate = long.Parse(principal.Claims.FirstOrDefault(x => x.Type == JwtRegisteredClaimNames.Exp).Value);
-        var expireDate = CommonHelper.ConvertUnixTimeToDateTime(utcExpireDate);
+        var lstAuthenticatedResponse = await GetListToken(Email);
+
+        //long utcExpireDate = long.Parse(principal.Claims.FirstOrDefault(x => x.Type == JwtRegisteredClaimNames.Exp).Value);
+        //var expireDate = CommonHelper.ConvertUnixTimeToDateTime(utcExpireDate);
+
+        DateTime expiryDate = lstAuthenticatedResponse.OrderBy(t => t.AccessTokenExpirationTime).Last().AccessTokenExpirationTime;
 
         // If request generate new access token while access token doesn't expire over 5 times then must be login again.
-        if (expireDate > DateTime.Now)
+        if (expiryDate > DateTime.Now)
         {
             var cacheValue = await _cachingService.GetAsync<string>(keyCache, cancellationTokenSource.Token);
             if (string.IsNullOrEmpty(cacheValue))

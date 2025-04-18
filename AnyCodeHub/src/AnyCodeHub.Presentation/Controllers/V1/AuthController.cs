@@ -55,6 +55,8 @@ public class AuthController : ApiController
         //}
         try
         {
+            if (HttpContext.Request.Cookies is null || HttpContext.Request.Cookies.Count == 0 || !HttpContext.Request.Cookies.ContainsKey("X-REFRESH-TOKEN")) return Unauthorized();
+
             var result = await _sender.Send(new Token() { RefreshToken = HttpContext.Request.Cookies["X-REFRESH-TOKEN"].ToString() });
 
             if (result.IsFailure)
