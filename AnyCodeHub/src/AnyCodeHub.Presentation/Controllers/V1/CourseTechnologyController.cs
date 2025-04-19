@@ -60,7 +60,7 @@ public class CourseTechnologyController : ApiController
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> UpdateCourseTechnology(Guid courseTechnologyId, [FromBody] Command.UpdateCourseTechnologyCommand request)
     {
-        var result = await _sender.Send(new Command.UpdateCourseTechnologyCommand(courseTechnologyId, request.courseId, request.technologyId));
+        var result = await _sender.Send(new Command.UpdateCourseTechnologyCommand(courseTechnologyId, request.courseId, request.technologyId, request.updatedBy));
 
         if (result.IsFailure)
             return HandlerFailure(result);

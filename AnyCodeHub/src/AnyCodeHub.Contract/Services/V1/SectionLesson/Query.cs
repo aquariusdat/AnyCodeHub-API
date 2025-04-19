@@ -7,6 +7,29 @@ namespace AnyCodeHub.Contract.Services.V1.SectionLesson;
 
 public static class Query
 {
-    public record GetSectionLessonQuery(string? SearchTerm, string? SortColumn, SortOrder? SortOrder, Dictionary<string, SortOrder>? SortColumnAndOrder, int PageIndex, int PageSize) : IQuery<PagedResult<SectionLessonResponse>>;
-    public record GetSectionLessonByIdQuery(Guid Id) : IQuery<SectionLessonResponse>;
+    public record GetSectionLessonQuery(
+        string? SearchTerm,
+        string? SortColumn,
+        SortOrder? SortOrder,
+        Dictionary<string, SortOrder>? SortColumnAndOrder,
+        int PageIndex,
+        int PageSize) : IQuery<PagedResult<SectionLessonResponse>>;
+
+    public record GetSectionLessonByIdQuery(Guid Id) : IQuery<SectionLessonDetailResponse>;
+
+    public record GetSectionLessonsBySectionIdQuery(
+        Guid SectionId,
+        string? SearchTerm,
+        string? SortColumn,
+        SortOrder? SortOrder,
+        int PageIndex,
+        int PageSize) : IQuery<PagedResult<SectionLessonResponse>>;
+
+    public record GetSectionLessonsByLessonIdQuery(
+        Guid LessonId,
+        string? SearchTerm,
+        string? SortColumn,
+        SortOrder? SortOrder,
+        int PageIndex,
+        int PageSize) : IQuery<PagedResult<SectionLessonResponse>>;
 }

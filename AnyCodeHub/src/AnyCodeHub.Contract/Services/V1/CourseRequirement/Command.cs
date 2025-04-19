@@ -5,6 +5,7 @@ namespace AnyCodeHub.Contract.Services.V1.CourseRequirement;
 
 public static class Command
 {
-    public record CreateCourseRequirementCommand(string requirementContent) : ICommand<Response.CourseRequirementResponse> { }
+    public record CreateCourseRequirementCommand(string requirementContent, Guid courseId, Guid createdBy) : ICommand<Response.CourseRequirementResponse> { }
     public record UpdateCourseRequirementCommand(Guid id, string requirementContent) : ICommand<Response.CourseRequirementResponse> { }
+    public record DeleteCourseRequirementCommand(Guid id, Guid deletedBy) : ICommand<bool> { }
 }

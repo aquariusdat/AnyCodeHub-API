@@ -7,6 +7,21 @@ namespace AnyCodeHub.Contract.Services.V1.CourseRequirement;
 
 public static class Query
 {
-    public record GetCourseRequirementQuery(string? SearchTerm, string? SortColumn, SortOrder? SortOrder, Dictionary<string, SortOrder>? SortColumnAndOrder, int PageIndex, int PageSize) : IQuery<PagedResult<CourseRequirementResponse>>;
+    public record GetCourseRequirementQuery(
+        string? SearchTerm,
+        string? SortColumn,
+        SortOrder? SortOrder,
+        Dictionary<string, SortOrder>? SortColumnAndOrder,
+        int PageIndex,
+        int PageSize) : IQuery<PagedResult<CourseRequirementResponse>>;
+
     public record GetCourseRequirementByIdQuery(Guid Id) : IQuery<CourseRequirementResponse>;
+
+    public record GetCourseRequirementsByCourseIdQuery(
+        Guid CourseId,
+        string? SearchTerm,
+        string? SortColumn,
+        SortOrder? SortOrder,
+        int PageIndex,
+        int PageSize) : IQuery<PagedResult<CourseRequirementResponse>>;
 }

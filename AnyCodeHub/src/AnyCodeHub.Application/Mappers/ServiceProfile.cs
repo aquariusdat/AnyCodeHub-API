@@ -11,6 +11,13 @@ public class ServiceProfile : Profile
         // V1
         CreateMap<Contract.Services.V1.Authentication.Command.RegisterCommand, AppUser>().ReverseMap();
         CreateMap<Contract.Services.V1.Course.Response.CourseResponse, Course>().ReverseMap();
+
+        // Section mapping
+        CreateMap<Section, Contract.Services.V1.Section.Response.SectionResponse>()
+            .ForMember(dest => dest.CourseName, opt => opt.Ignore())
+            .ForMember(dest => dest.LessonCount, opt => opt.Ignore());
+        CreateMap<Contract.Services.V1.Section.Response.SectionResponse, Section>().ReverseMap();
+
         //CreateMap<Post, Contract.Services.V1.Post.Response.PostResponse>().ReverseMap();
         //CreateMap<PagedResult<Post>, PagedResult<Contract.Services.V1.Post.Response.PostResponse>>().ReverseMap();
 

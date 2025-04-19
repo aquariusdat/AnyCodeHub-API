@@ -60,7 +60,7 @@ public class CourseQAController : ApiController
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> UpdateCourseQA(Guid courseQAId, [FromBody] Command.UpdateCourseQACommand request)
     {
-        var result = await _sender.Send(new Command.UpdateCourseQACommand(courseQAId, request.question, request.answer));
+        var result = await _sender.Send(new Command.UpdateCourseQACommand(courseQAId, request.question, request.answer, request.updatedBy));
 
         if (result.IsFailure)
             return HandlerFailure(result);

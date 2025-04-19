@@ -7,6 +7,21 @@ namespace AnyCodeHub.Contract.Services.V1.CourseBenefit;
 
 public static class Query
 {
-    public record GetCourseBenefitQuery(string? SearchTerm, string? SortColumn, SortOrder? SortOrder, Dictionary<string, SortOrder>? SortColumnAndOrder, int PageIndex, int PageSize) : IQuery<PagedResult<CourseBenefitResponse>>;
+    public record GetCourseBenefitQuery(
+        string? SearchTerm,
+        string? SortColumn,
+        SortOrder? SortOrder,
+        Dictionary<string, SortOrder>? SortColumnAndOrder,
+        int PageIndex,
+        int PageSize) : IQuery<PagedResult<CourseBenefitResponse>>;
+
     public record GetCourseBenefitByIdQuery(Guid Id) : IQuery<CourseBenefitResponse>;
+
+    public record GetCourseBenefitsByCourseIdQuery(
+        Guid CourseId,
+        string? SearchTerm,
+        string? SortColumn,
+        SortOrder? SortOrder,
+        int PageIndex,
+        int PageSize) : IQuery<PagedResult<CourseBenefitResponse>>;
 }

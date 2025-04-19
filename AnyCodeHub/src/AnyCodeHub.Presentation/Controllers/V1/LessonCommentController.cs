@@ -60,7 +60,7 @@ public class LessonCommentController : ApiController
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> UpdateLessonComment(Guid lessonCommentId, [FromBody] Command.UpdateLessonCommentCommand request)
     {
-        var result = await _sender.Send(new Command.UpdateLessonCommentCommand(lessonCommentId, request.lessonId, request.commentId, request.updatedBy));
+        var result = await _sender.Send(new Command.UpdateLessonCommentCommand(lessonCommentId, request.lessonId, request.commentId, request.content, request.updatedBy));
 
         if (result.IsFailure)
             return HandlerFailure(result);

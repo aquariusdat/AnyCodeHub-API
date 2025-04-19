@@ -7,6 +7,31 @@ namespace AnyCodeHub.Contract.Services.V1.CourseCategory;
 
 public static class Query
 {
-    public record GetCourseCategoryQuery(string? SearchTerm, string? SortColumn, SortOrder? SortOrder, Dictionary<string, SortOrder>? SortColumnAndOrder, int PageIndex, int PageSize) : IQuery<PagedResult<CourseCategoryResponse>>;
-    public record GetCourseCategoryByIdQuery(Guid Id) : IQuery<CourseCategoryResponse>;
+    public record GetCourseCategoryQuery(
+        string? SearchTerm,
+        string? SortColumn,
+        SortOrder? SortOrder,
+        Dictionary<string, SortOrder>? SortColumnAndOrder,
+        int PageIndex,
+        int PageSize) : IQuery<PagedResult<CourseCategoryResponse>>;
+
+    public record GetCourseCategoryByIdQuery(Guid Id) : IQuery<CourseCategoryDetailResponse>;
+
+    public record GetCourseCategoriesByCourseIdQuery(
+        Guid CourseId,
+        string? SearchTerm,
+        string? SortColumn,
+        SortOrder? SortOrder,
+        int PageIndex,
+        int PageSize) : IQuery<PagedResult<CourseCategoryResponse>>;
+
+    public record GetCourseCategoryByCourseIdQuery(Guid CourseId) : IQuery<List<CourseCategoryResponse>>;
+
+    public record GetCourseCategoriesByCategoryIdQuery(
+        Guid CategoryId,
+        string? SearchTerm,
+        string? SortColumn,
+        SortOrder? SortOrder,
+        int PageIndex,
+        int PageSize) : IQuery<PagedResult<CourseCategoryResponse>>;
 }

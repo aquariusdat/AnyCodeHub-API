@@ -36,7 +36,7 @@ public class CourseController : ApiController
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> Courses(Guid courseId)
     {
-        var result = await _sender.Send(new Query.GetPostByIdQuery(courseId));
+        var result = await _sender.Send(new Query.GetCourseByIdQuery(courseId));
 
         if (result.IsFailure)
             return HandlerFailure(result);
