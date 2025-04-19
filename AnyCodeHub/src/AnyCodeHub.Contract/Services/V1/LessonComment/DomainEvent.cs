@@ -5,13 +5,13 @@ namespace AnyCodeHub.Contract.Services.V1.LessonComment;
 
 public static class DomainEvent
 {
-    public record LessonCommentCreated(Guid EventId, Guid Id, Guid LessonId, Guid CommentId, Guid CreatedBy, DateTime CreatedAt) : IDomainEvent
+    public record LessonCommentCreated(Guid EventId, Guid Id, Guid LessonId, Guid CommentId, string ContentId, Guid CreatedBy, DateTime CreatedAt) : IDomainEvent
     {
         public Guid Id { get; set; } = Id;
         public DateTimeOffset TimeStamp { get; set; } = CreatedAt;
     }
 
-    public record LessonCommentUpdated(Guid EventId, Guid Id, Guid LessonId, Guid CommentId, Guid? UpdatedBy, DateTime? UpdatedAt) : IDomainEvent
+    public record LessonCommentUpdated(Guid EventId, Guid Id, Guid LessonId, Guid CommentId, string ContentId, Guid? UpdatedBy, DateTime? UpdatedAt) : IDomainEvent
     {
         public Guid Id { get; set; } = Id;
         public DateTimeOffset TimeStamp { get; set; } = UpdatedAt ?? DateTimeOffset.Now;

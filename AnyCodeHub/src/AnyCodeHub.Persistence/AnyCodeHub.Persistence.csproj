@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Configurations\CommentConfiguration.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Interceptors\" />
   </ItemGroup>
 

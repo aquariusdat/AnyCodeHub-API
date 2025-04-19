@@ -24,7 +24,7 @@ namespace AnyCodeHub.Persistence
         public DbSet<Course> Courses { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<OutboxMessage> OutboxMessages { get; set; }
-        public DbSet<Comment> Comments { get; set; }
+        //public DbSet<Comment> Comments { get; set; }
         public DbSet<CourseBenefit> CourseBenefits { get; set; }
         public DbSet<CourseRequirement> CourseRequirements { get; set; }
         public DbSet<CourseSection> CourseSections { get; set; }

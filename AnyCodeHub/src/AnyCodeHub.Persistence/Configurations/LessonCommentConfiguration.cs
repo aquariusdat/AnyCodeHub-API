@@ -20,10 +20,10 @@ namespace AnyCodeHub.Persistence.Configurations
                 .HasForeignKey(lc => lc.LessonId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasOne<Comment>()
-                .WithMany()
-                .HasForeignKey(lc => lc.CommentId)
-                .OnDelete(DeleteBehavior.Cascade);
+            //builder.HasOne<Comment>()
+            //    .WithMany()
+            //    .HasForeignKey(lc => lc.CommentId)
+            //    .OnDelete(DeleteBehavior.Cascade);
 
             // Required properties
             builder.Property(lc => lc.LessonId).IsRequired();

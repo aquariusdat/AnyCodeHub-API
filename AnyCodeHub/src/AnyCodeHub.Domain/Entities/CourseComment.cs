@@ -11,31 +11,33 @@ public class CourseComment : AggregateRoot<Guid>, IBaseAuditEntity
     {
     }
 
-    private CourseComment(Guid courseId, Guid commentId, Guid createdBy)
+    private CourseComment(Guid courseId, Guid commentId, string content, Guid createdBy)
     {
         Id = Guid.NewGuid();
         CourseId = courseId;
         CommentId = commentId;
         CreatedBy = createdBy;
+        Content = content;
         CreatedAt = DateTime.Now;
     }
 
-    public static CourseComment Create(Guid courseId, Guid commentId, Guid createdBy)
+    public static CourseComment Create(Guid courseId, Guid commentId, string content, Guid createdBy)
     {
-        CourseComment courseComment = new CourseComment(courseId, commentId, createdBy);
-        courseComment.RaiseDomainEvent(new DomainEvent.CourseCommentCreated(Guid.NewGuid(), courseComment.Id, courseId, commentId, createdBy, DateTime.Now));
+        CourseComment courseComment = new CourseComment(courseId, commentId, content, createdBy);
+        courseComment.RaiseDomainEvent(new DomainEvent.CourseCommentCreated(Guid.NewGuid(), courseComment.Id, courseId, commentId, content, createdBy, DateTime.Now));
         return courseComment;
     }
 
-    public void Update(Guid id, Guid courseId, Guid commentId, Guid updatedBy)
+    public void Update(Guid id, Guid courseId, Guid commentId, string content, Guid updatedBy)
     {
         Id = id;
         CourseId = courseId;
         CommentId = commentId;
         UpdatedAt = DateTime.Now;
         UpdatedBy = updatedBy;
+        Content = content;
 
-        RaiseDomainEvent(new DomainEvent.CourseCommentUpdated(Guid.NewGuid(), Id, CourseId, CommentId, UpdatedBy, UpdatedAt));
+        RaiseDomainEvent(new DomainEvent.CourseCommentUpdated(Guid.NewGuid(), Id, CourseId, CommentId, Content, UpdatedBy, UpdatedAt));
     }
 
     public void Delete(Guid deletedBy)
@@ -49,6 +51,7 @@ public class CourseComment : AggregateRoot<Guid>, IBaseAuditEntity
 
     public Guid CourseId { get; private set; }
     public Guid CommentId { get; private set; }
+    public string Content { get; private set; }
 
     public DateTime CreatedAt { get; set; }
     public Guid CreatedBy { get; set; }
