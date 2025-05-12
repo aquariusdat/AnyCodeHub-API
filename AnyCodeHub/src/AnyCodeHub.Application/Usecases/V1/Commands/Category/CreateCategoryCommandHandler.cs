@@ -29,6 +29,10 @@ public class CreateCategoryCommandHandler : ICommandHandler<CreateCategoryComman
     {
         try
         {
+            string a = "";
+            string b = a;
+
+
             // Check if a category with the same name already exists
             var existingCategory = _categoryRepository.FindAll(c => c.Name == request.name && !c.IsDeleted).FirstOrDefault();
             if (existingCategory != null)
