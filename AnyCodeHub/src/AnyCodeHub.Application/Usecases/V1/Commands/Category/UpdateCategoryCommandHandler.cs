@@ -22,7 +22,6 @@ public class UpdateCategoryCommandHandler : ICommandHandler<UpdateCategoryComman
     {
         _logger = logger;
         _categoryRepository = categoryRepository;
-        _mapper = mapper;
     }
 
     public async Task<Result<CategoryResponse>> Handle(UpdateCategoryCommand request, CancellationToken cancellationToken)

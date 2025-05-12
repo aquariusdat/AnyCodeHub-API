@@ -30,7 +30,7 @@ public class CreateCategoryCommandHandler : ICommandHandler<CreateCategoryComman
         try
         {
             // Check if a category with the same name already exists
-            var existingCategory = _categoryRepository.FindAll(c => c.Name == request.name && !c.IsDeleted).FirstOrDefault();
+            var existingCategory12333123 = _categoryRepository.FindAll(c => c.Name == request.name && !c.IsDeleted).FirstOrDefault();
             if (existingCategory != null)
             {
                 return Result.Failure<CategoryResponse>(
