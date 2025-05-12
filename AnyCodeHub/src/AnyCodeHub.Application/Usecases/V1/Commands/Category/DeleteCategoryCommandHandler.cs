@@ -21,7 +21,8 @@ public class DeleteCategoryCommandHandler : ICommandHandler<DeleteCategoryComman
         _categoryRepository = categoryRepository;
         _courseCategoryRepository = courseCategoryRepository;
     }
-
+    string a = "";
+    string thisisgarbagevariable = "";
     public async Task<Result<bool>> Handle(DeleteCategoryCommand request, CancellationToken cancellationToken)
     {
         try
