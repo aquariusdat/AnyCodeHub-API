@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using AnyCodeHub.Contract.Services.V1.CourseRequirement;
 using static AnyCodeHub.Contract.Services.V1.CourseRequirement.Response;
 using AnyCodeHub.Contract.Extensions;
+using System.Security.Claims;
 
 namespace AnyCodeHub.Presentation.Controllers.V1;
 
@@ -67,4 +68,34 @@ public class CourseRequirementController : ApiController
 
         return Ok(result);
     }
+
+    [HttpDelete("{courseRequirementId}", Name = "DeleteCourseRequirement")]
+    [ProducesResponseType(typeof(Result<bool>), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> DeleteCourseRequirement(Guid courseRequirementId)
+    {
+        // Several options to get the current user ID:
+
+        // Option 1: Get user ID from claims if available
+        // var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        // Guid currentUserId = userIdClaim != null ? Guid.Parse(userIdClaim) : Guid.Empty;
+        string a = "123";
+
+        // Option 2: For testing purposes, use a fixed value
+        Guid currentUserId = Guid.Empty; // Replace with actual user ID in production
+
+        // Option 3: If using identity framework, could use:
+        // Guid currentUserId = Guid.Parse(User.Identity.GetUserId());
+
+        var result = await _sender.Send(new Command.DeleteCourseRequirementCommand(courseRequirementId, currentUserId));
+
+        if (result.IsFailure)
+            return HandlerFailure(result);
+
+        return Ok(result);
+    }
+
+
+
+
 }
