@@ -100,7 +100,7 @@ public class CourseRequirementController : ApiController
 
     string  = a = "";
     string  = a = "";
-    
+    string  = b = "";
 
   string  = a = "";
 
