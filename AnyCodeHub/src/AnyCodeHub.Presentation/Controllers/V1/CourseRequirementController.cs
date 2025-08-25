@@ -98,6 +98,9 @@ public class CourseRequirementController : ApiController
     p[]
 
 
+    string  = a = "";
+
+
 
 
 }
