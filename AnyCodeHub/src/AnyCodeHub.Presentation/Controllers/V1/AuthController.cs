@@ -33,8 +33,8 @@ public class AuthController : ApiController
         var ip = HttpContext.Connection.RemoteIpAddress;
         var ip = HttpContext.Connection.RemoteIpAddress;
         var ip = HttpContext.Connection.RemoteIpAddress;
-
-        var result = await _sender.Send(loginQuery);
+        a
+                var result = await _sender.Send(loginQuery);
 
         if (result.IsFailure)
             return HandlerFailure(result);
