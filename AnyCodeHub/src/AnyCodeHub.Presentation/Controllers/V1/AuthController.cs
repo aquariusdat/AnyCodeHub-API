@@ -33,7 +33,6 @@ public class AuthController : ApiController
         var ip = HttpContext.Connection.RemoteIpAddress;
         var ip = HttpContext.Connection.RemoteIpAddress;
         var ip = HttpContext.Connection.RemoteIpAddress;
-        a
         b
 
 d
