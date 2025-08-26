@@ -36,7 +36,7 @@ public class AuthController : ApiController
         a
         b
 
-
+d
                 var result = await _sender.Send(loginQuery);
 
         if (result.IsFailure)
