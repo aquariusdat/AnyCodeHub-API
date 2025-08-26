@@ -31,6 +31,7 @@ public class AuthController : ApiController
     public async Task<IActionResult> Login([FromBody] Contract.Services.V1.Authentication.Query.Login loginQuery)
     {
         var ip = HttpContext.Connection.RemoteIpAddress;
+        var ip = HttpContext.Connection.RemoteIpAddress;
 
         var result = await _sender.Send(loginQuery);
 
@@ -66,9 +67,9 @@ public class AuthController : ApiController
 
             return Ok(result);
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
-            if(ex is TokenException)
+            if (ex is TokenException)
             {
                 RemoveTokenFromCookies();
             }
