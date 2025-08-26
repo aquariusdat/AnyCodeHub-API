@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using MimeKit;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using System.Data;
 using System.Reflection;
 using static AnyCodeHub.Contract.Services.V1.Authentication.Query;
 using static AnyCodeHub.Domain.Exceptions.IdentityException;
@@ -31,67 +32,17 @@ public class AuthController : ApiController
     public async Task<IActionResult> Login([FromBody] Contract.Services.V1.Authentication.Query.Login loginQuery)
     {
         var ip = HttpContext.Connection.RemoteIpAddress;
-        asdfasdf
-using System;
-        using System.Collections.Generic;
-        using System.Linq;
-        using System.Threading.Tasks;
-        using Microsoft.AspNetCore.Builder;
-        using Microsoft.AspNetCore.Hosting;
-        using Microsoft.AspNetCore.Http;
-        using Microsoft.Extensions.DependencyInjection;
+        var ip = HttpContext.Connection.RemoteIpAddress;
+        DataTable dataTable = null;
 
-namespace WebApp
-{
-    public class Startup
-    {
-        public void ConfigureServices(IServiceCollection services)
+        if (dataTable.Rows.Count > 0)
         {
+            dataTable.Rows.Add(1, "John", "Doe");
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-        {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
 
-            app.Run(async (context) =>
-            {
-                await context.Response.WriteAsync("Hello World!");
-            });
-        }
-        aa
-    }
-}
-namespace dfsa
-;
-var result = await _sender.Send(loginQuery);
 
-        if (result.IsFailure)
-            return HandlerFailure(result);
-
-SetTokenIntoCookies(result);
-
-        return Ok(result);
-    }
-
-    [AllowAnonymous]
-[HttpPost("Token")]
-[ProducesResponseType(typeof(Result<Contract.Services.V1.Authentication.Response.AuthenticatedResponse>), StatusCodes.Status200OK)]
-[ProducesResponseType(StatusCodes.Status404NotFound)]
-public async Task<IActionResult> Token()
-{
-    //var accessToken = await HttpContext.GetTokenAsync("access_token");
-    //if (!string.IsNullOrEmpty(accessToken))
-    //{
-    //    tokenQuery.AccessToken = accessToken.ToString();
-    //}
-    try
-    {
-        if (HttpContext.Request.Cookies is null || HttpContext.Request.Cookies.Count == 0 || !HttpContext.Request.Cookies.ContainsKey("X-REFRESH-TOKEN")) return Unauthorized();
-
-        var result = await _sender.Send(new Token() { RefreshToken = HttpContext.Request.Cookies["X-REFRESH-TOKEN"].ToString() });
+        var result = await _sender.Send(loginQuery);
 
         if (result.IsFailure)
             return HandlerFailure(result);
@@ -100,161 +51,186 @@ public async Task<IActionResult> Token()
 
         return Ok(result);
     }
-    catch (Exception ex)
+
+    [AllowAnonymous]
+    [HttpPost("Token")]
+    [ProducesResponseType(typeof(Result<Contract.Services.V1.Authentication.Response.AuthenticatedResponse>), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> Token()
     {
-        if (ex is TokenException)
+        //var accessToken = await HttpContext.GetTokenAsync("access_token");
+        //if (!string.IsNullOrEmpty(accessToken))
+        //{
+        //    tokenQuery.AccessToken = accessToken.ToString();
+        //}
+        try
         {
-            RemoveTokenFromCookies();
+            if (HttpContext.Request.Cookies is null || HttpContext.Request.Cookies.Count == 0 || !HttpContext.Request.Cookies.ContainsKey("X-REFRESH-TOKEN")) return Unauthorized();
+
+            var result = await _sender.Send(new Token() { RefreshToken = HttpContext.Request.Cookies["X-REFRESH-TOKEN"].ToString() });
+
+            if (result.IsFailure)
+                return HandlerFailure(result);
+
+            SetTokenIntoCookies(result);
+
+            return Ok(result);
         }
-        throw;
-    }
-}
-
-private void SetTokenIntoCookies(Result<Contract.Services.V1.Authentication.Response.AuthenticatedResponse> result)
-{
-    Response.Cookies.Append("X-ACCESS-TOKEN", result.Value.AccessToken, new CookieOptions
-    {
-        Expires = result.Value.AccessTokenExpirationTime,
-        HttpOnly = true,
-        Secure = false,
-        SameSite = SameSiteMode.Strict,
-    });
-    Response.Cookies.Append("X-REFRESH-TOKEN", result.Value.RefreshToken, new CookieOptions
-    {
-        Expires = result.Value.RefreshTokenExpirationTime,
-        HttpOnly = true,
-        Secure = false,
-        SameSite = SameSiteMode.Strict,
-    });
-    Response.Cookies.Append("X-USER-DATA", JsonConvert.SerializeObject(result.Value.UserInformation, Formatting.Indented, new JsonSerializerSettings
-    {
-        ContractResolver = new CamelCasePropertyNamesContractResolver()
-    }), new CookieOptions
-    {
-        Expires = result.Value.AccessTokenExpirationTime,
-        HttpOnly = false,
-        Secure = false,
-        SameSite = SameSiteMode.Strict,
-    });
-}
-
-private void RemoveTokenFromCookies()
-{
-    Response.Cookies.Append("X-ACCESS-TOKEN", string.Empty, new CookieOptions
-    {
-        Expires = DateTime.Now.AddDays(-99),
-        HttpOnly = true,
-        Secure = false,
-        SameSite = SameSiteMode.Strict,
-    });
-    Response.Cookies.Append("X-REFRESH-TOKEN", string.Empty, new CookieOptions
-    {
-        Expires = DateTime.Now.AddDays(-99),
-        HttpOnly = true,
-        Secure = false,
-        SameSite = SameSiteMode.Strict,
-    });
-    Response.Cookies.Append("X-USER-DATA", string.Empty, new CookieOptions
-    {
-        Expires = DateTime.Now.AddDays(-99),
-        HttpOnly = false,
-        Secure = false,
-        SameSite = SameSiteMode.Strict,
-    });
-}
-
-[Authorize]
-[HttpPost("RevokeToken")]
-[ProducesResponseType(typeof(Result<bool>), StatusCodes.Status200OK)]
-[ProducesResponseType(StatusCodes.Status404NotFound)]
-public async Task<IActionResult> RevokeToken([FromBody] Contract.Services.V1.Authentication.Command.RevokeTokenCommand revokeTokenCommand)
-{
-    var accessToken = await HttpContext.GetTokenAsync("access_token");
-    if (!string.IsNullOrEmpty(accessToken))
-    {
-        revokeTokenCommand.AccessToken = accessToken.ToString();
+        catch (Exception ex)
+        {
+            if (ex is TokenException)
+            {
+                RemoveTokenFromCookies();
+            }
+            throw;
+        }
     }
 
-    var result = await _sender.Send(revokeTokenCommand);
+    private void SetTokenIntoCookies(Result<Contract.Services.V1.Authentication.Response.AuthenticatedResponse> result)
+    {
+        Response.Cookies.Append("X-ACCESS-TOKEN", result.Value.AccessToken, new CookieOptions
+        {
+            Expires = result.Value.AccessTokenExpirationTime,
+            HttpOnly = true,
+            Secure = false,
+            SameSite = SameSiteMode.Strict,
+        });
+        Response.Cookies.Append("X-REFRESH-TOKEN", result.Value.RefreshToken, new CookieOptions
+        {
+            Expires = result.Value.RefreshTokenExpirationTime,
+            HttpOnly = true,
+            Secure = false,
+            SameSite = SameSiteMode.Strict,
+        });
+        Response.Cookies.Append("X-USER-DATA", JsonConvert.SerializeObject(result.Value.UserInformation, Formatting.Indented, new JsonSerializerSettings
+        {
+            ContractResolver = new CamelCasePropertyNamesContractResolver()
+        }), new CookieOptions
+        {
+            Expires = result.Value.AccessTokenExpirationTime,
+            HttpOnly = false,
+            Secure = false,
+            SameSite = SameSiteMode.Strict,
+        });
+    }
 
-    if (result.IsFailure)
-        return HandlerFailure(result);
+    private void RemoveTokenFromCookies()
+    {
+        Response.Cookies.Append("X-ACCESS-TOKEN", string.Empty, new CookieOptions
+        {
+            Expires = DateTime.Now.AddDays(-99),
+            HttpOnly = true,
+            Secure = false,
+            SameSite = SameSiteMode.Strict,
+        });
+        Response.Cookies.Append("X-REFRESH-TOKEN", string.Empty, new CookieOptions
+        {
+            Expires = DateTime.Now.AddDays(-99),
+            HttpOnly = true,
+            Secure = false,
+            SameSite = SameSiteMode.Strict,
+        });
+        Response.Cookies.Append("X-USER-DATA", string.Empty, new CookieOptions
+        {
+            Expires = DateTime.Now.AddDays(-99),
+            HttpOnly = false,
+            Secure = false,
+            SameSite = SameSiteMode.Strict,
+        });
+    }
 
-    return Ok(result);
-}
+    [Authorize]
+    [HttpPost("RevokeToken")]
+    [ProducesResponseType(typeof(Result<bool>), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> RevokeToken([FromBody] Contract.Services.V1.Authentication.Command.RevokeTokenCommand revokeTokenCommand)
+    {
+        var accessToken = await HttpContext.GetTokenAsync("access_token");
+        if (!string.IsNullOrEmpty(accessToken))
+        {
+            revokeTokenCommand.AccessToken = accessToken.ToString();
+        }
 
-[AllowAnonymous]
-[HttpPost("Register")]
-[ProducesResponseType(typeof(Result<bool>), StatusCodes.Status200OK)]
-[ProducesResponseType(StatusCodes.Status404NotFound)]
-public async Task<IActionResult> Register([FromBody] Contract.Services.V1.Authentication.Command.RegisterCommand registerCommand)
-{
-    var result = await _sender.Send(registerCommand);
+        var result = await _sender.Send(revokeTokenCommand);
 
-    if (result.IsFailure)
-        return HandlerFailure(result);
+        if (result.IsFailure)
+            return HandlerFailure(result);
 
-    return Ok(result);
-}
+        return Ok(result);
+    }
 
-[HttpGet("GetUserData")]
-[ProducesResponseType(typeof(Result<bool>), StatusCodes.Status200OK)]
-[ProducesResponseType(StatusCodes.Status404NotFound)]
-public async Task<IActionResult> GetUserData()
-{
-    var accessToken = await HttpContext.GetTokenAsync("access_token");
-    Contract.Services.V1.Authentication.Query.GetUserData getUserDataQuery = new GetUserData(accessToken);
+    [AllowAnonymous]
+    [HttpPost("Register")]
+    [ProducesResponseType(typeof(Result<bool>), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> Register([FromBody] Contract.Services.V1.Authentication.Command.RegisterCommand registerCommand)
+    {
+        var result = await _sender.Send(registerCommand);
 
-    var result = await _sender.Send(getUserDataQuery);
+        if (result.IsFailure)
+            return HandlerFailure(result);
 
-    if (result.IsFailure)
-        return HandlerFailure(result);
+        return Ok(result);
+    }
 
-    return Ok(result);
-}
+    [HttpGet("GetUserData")]
+    [ProducesResponseType(typeof(Result<bool>), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> GetUserData()
+    {
+        var accessToken = await HttpContext.GetTokenAsync("access_token");
+        Contract.Services.V1.Authentication.Query.GetUserData getUserDataQuery = new GetUserData(accessToken);
 
-[AllowAnonymous]
-[HttpPost("log-out")]
-[ProducesResponseType(typeof(Result<bool>), StatusCodes.Status200OK)]
-[ProducesResponseType(StatusCodes.Status404NotFound)]
-public async Task<IActionResult> Logout()
-{
-    RemoveTokenFromCookies();
-    return Ok(Contract.Abstractions.Shared.Result.Success());
-}
+        var result = await _sender.Send(getUserDataQuery);
 
-[AllowAnonymous]
-[HttpGet("SignInGoogleOAuth")]
-[ProducesResponseType(typeof(Result<string>), StatusCodes.Status200OK)]
-[ProducesResponseType(StatusCodes.Status404NotFound)]
-public async Task<IActionResult> SignInGoogleOAuth()
-{
-    string requestOrigin = Request.Headers["Origin"];
-    string state = $"{requestOrigin}/";
-    Contract.Services.V1.Authentication.Query.SignInGoogleOAuthQuery signIn = new Contract.Services.V1.Authentication.Query.SignInGoogleOAuthQuery(state);
+        if (result.IsFailure)
+            return HandlerFailure(result);
 
-    var authorizationUri = await _sender.Send(signIn);
+        return Ok(result);
+    }
 
-    if (authorizationUri.IsFailure)
-        HandlerFailure(authorizationUri);
+    [AllowAnonymous]
+    [HttpPost("log-out")]
+    [ProducesResponseType(typeof(Result<bool>), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> Logout()
+    {
+        RemoveTokenFromCookies();
+        return Ok(Contract.Abstractions.Shared.Result.Success());
+    }
 
-    return Ok(authorizationUri);
-}
+    [AllowAnonymous]
+    [HttpGet("SignInGoogleOAuth")]
+    [ProducesResponseType(typeof(Result<string>), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> SignInGoogleOAuth()
+    {
+        string requestOrigin = Request.Headers["Origin"];
+        string state = $"{requestOrigin}/";
+        Contract.Services.V1.Authentication.Query.SignInGoogleOAuthQuery signIn = new Contract.Services.V1.Authentication.Query.SignInGoogleOAuthQuery(state);
 
-[AllowAnonymous]
-[HttpGet("CallbackGoogleOAuth")]
-[ProducesResponseType(typeof(Result<string>), StatusCodes.Status200OK)]
-[ProducesResponseType(StatusCodes.Status404NotFound)]
-public async Task<IActionResult> CallbackGoogleOAuth([FromQuery] Contract.Services.V1.Authentication.Command.CallbackGoogleOAuthCommand callBack)
-{
-    var callbackResponse = await _sender.Send(callBack);
+        var authorizationUri = await _sender.Send(signIn);
 
-    if (callbackResponse.IsFailure)
-        HandlerFailure(callbackResponse);
+        if (authorizationUri.IsFailure)
+            HandlerFailure(authorizationUri);
 
-    SetTokenIntoCookies(callbackResponse.Value);
+        return Ok(authorizationUri);
+    }
 
-    return Content($@"
+    [AllowAnonymous]
+    [HttpGet("CallbackGoogleOAuth")]
+    [ProducesResponseType(typeof(Result<string>), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> CallbackGoogleOAuth([FromQuery] Contract.Services.V1.Authentication.Command.CallbackGoogleOAuthCommand callBack)
+    {
+        var callbackResponse = await _sender.Send(callBack);
+
+        if (callbackResponse.IsFailure)
+            HandlerFailure(callbackResponse);
+
+        SetTokenIntoCookies(callbackResponse.Value);
+
+        return Content($@"
         <html>
         <body>
             <script>
@@ -272,7 +248,7 @@ public async Task<IActionResult> CallbackGoogleOAuth([FromQuery] Contract.Servic
         </body>
         </html>", "text/html");
 
-    return Redirect(callBack.state);
-}
+        return Redirect(callBack.state);
+    }
 
 }
