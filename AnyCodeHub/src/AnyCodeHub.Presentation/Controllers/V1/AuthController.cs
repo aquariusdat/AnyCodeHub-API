@@ -25,6 +25,7 @@ public class AuthController : ApiController
     {
     }
 
+string a = "";
     [AllowAnonymous]
     [HttpPost("Login")]
     [ProducesResponseType(typeof(Result<Contract.Services.V1.Authentication.Response.AuthenticatedResponse>), StatusCodes.Status200OK)]
