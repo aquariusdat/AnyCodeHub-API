@@ -1,3 +1,4 @@
+using System.Data;
 using AnyCodeHub.Contract.Abstractions.Message;
 using AnyCodeHub.Contract.Abstractions.Shared;
 using AnyCodeHub.Contract.Services.V1.Category;
@@ -36,7 +37,12 @@ public class CreateCategoryCommandHandler : ICommandHandler<CreateCategoryComman
                 return Result.Failure<CategoryResponse>(
                     new Error("Category.NameAlreadyExists", $"A category with the name '{request.name}' already exists."));
             }
-
+            DataTable dtbCategories = null;
+            if (dtbCategories.Rows.Count > 0)
+            {
+                return Result.Failure<CategoryResponse>(
+                    new Error("Category.NameAlreadyExists", $"A category with the name '{request.name}' already exists."));
+            }
             // Create the category
             var category = Domain.Entities.Category.Create(
                 request.name,
